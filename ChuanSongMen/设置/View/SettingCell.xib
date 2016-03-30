@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingCell" id="KGk-i7-Jjw" customClass="SettingCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="只运行我关注的人给我发私信" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iU-la-drh">
+                        <rect key="frame" x="10" y="11" width="203" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="203" id="O68-W0-4HM"/>
+                            <constraint firstAttribute="height" constant="21" id="ThX-Gi-OPR"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoZ-as-xs5">
+                        <rect key="frame" x="0.0" y="41" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="xO4-6T-z5m"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xCD-jV-hnG">
+                        <rect key="frame" x="261" y="6" width="51" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="31" id="MHU-4g-9mc"/>
+                            <constraint firstAttribute="width" constant="49" id="icQ-cE-OfX"/>
+                        </constraints>
+                    </switch>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_back 拷贝 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="v4K-yf-dvC">
+                        <rect key="frame" x="290" y="11" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="6ec-67-ON9"/>
+                            <constraint firstAttribute="height" constant="20" id="70h-l5-8H2"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="IoZ-as-xs5" secondAttribute="trailing" id="83H-2m-kn4"/>
+                    <constraint firstItem="xCD-jV-hnG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WI0-fC-Ydm"/>
+                    <constraint firstItem="IoZ-as-xs5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Xxq-Zi-eJI"/>
+                    <constraint firstItem="6iU-la-drh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="bPZ-9o-TOf"/>
+                    <constraint firstItem="v4K-yf-dvC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eNS-Z9-eyr"/>
+                    <constraint firstItem="6iU-la-drh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fIO-O8-l1H"/>
+                    <constraint firstAttribute="bottom" secondItem="IoZ-as-xs5" secondAttribute="bottom" constant="1" id="fQY-AV-gVS"/>
+                    <constraint firstAttribute="trailing" secondItem="v4K-yf-dvC" secondAttribute="trailing" constant="10" id="nlk-5K-VSA"/>
+                    <constraint firstAttribute="trailing" secondItem="xCD-jV-hnG" secondAttribute="trailing" constant="10" id="wNz-2O-4R7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lineLabel" destination="IoZ-as-xs5" id="VLM-6w-tcg"/>
+                <outlet property="rightImage" destination="v4K-yf-dvC" id="IEr-Gi-U2e"/>
+                <outlet property="rightSwitch" destination="xCD-jV-hnG" id="6Qw-lK-Ssd"/>
+                <outlet property="titleLabel" destination="6iU-la-drh" id="KaP-ar-JEA"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="user_back 拷贝 2.png" width="36" height="36"/>
+    </resources>
+</document>

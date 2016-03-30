@@ -1,0 +1,32 @@
+//
+//  ChuanSongMenPH.pch
+//  ChuanSongMen
+//
+//  Created by apple on 15/9/12.
+//  Copyright (c) 2015年 apple. All rights reserved.
+//
+
+#ifndef ChuanSongMen_ChuanSongMenPH_pch
+#define ChuanSongMen_ChuanSongMenPH_pch
+
+#define isIos7System [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0
+
+#define BaseUrl @"http://120.24.46.199/Door/"
+#define BasePicAppending @"http://120.24.46.199/Door"
+//导航栏颜色
+#define navBarColor(R, G, B) [UIColor colorWithRed:R/255 green:G/255 blue:B/255 alpha:1.0f]
+
+#define selectColor [UIColor colorWithRed:0/255.0 green:117/255.0 blue:180/255.0 alpha:1]
+
+//tabBar颜色
+#define tabBarColor(R, G, B) [UIColor colorWithRed:R/255 green:G/255 blue:B/255 alpha:1.0f];
+#define ServerAddress  @"http://112.74.72.48/Door"
+
+#define KScrennWith [[UIScreen mainScreen] bounds].size.width
+#define KScrennHeight [[UIScreen mainScreen] bounds].size.height
+#define KScrenn [[UIScreen mainScreen] bounds]
+#define RGB(A, B, C)    [UIColor colorWithRed:A/255.0 green:B/255.0 blue:C/255.0 alpha:1.0]
+
+#import "UIUtils.h"
+
+#endif

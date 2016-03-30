@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PurseBankCardVC">
+            <connections>
+                <outlet property="bottomView" destination="gTm-27-ifT" id="Qfb-8h-u8l"/>
+                <outlet property="tableView" destination="uEZ-Gb-xgf" id="kLo-2a-ios"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uEZ-Gb-xgf">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="523"/>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="gaP-6P-NKG"/>
+                        <outlet property="delegate" destination="-1" id="nyO-2q-kO1"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTm-27-ifT">
+                    <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加银行卡" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdj-vA-BSL">
+                            <rect key="frame" x="10" y="10" width="98" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="cQq-db-jGM"/>
+                                <constraint firstAttribute="width" constant="98" id="mvl-vB-vvW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="kit-cN-Pmj">
+                            <rect key="frame" x="288" y="9" width="17" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="I36-fl-Bjt"/>
+                                <constraint firstAttribute="width" constant="17" id="YMr-tN-gjC"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="0c6-AA-evf"/>
+                        <constraint firstItem="Tdj-vA-BSL" firstAttribute="leading" secondItem="gTm-27-ifT" secondAttribute="leading" constant="10" id="3vk-Kx-0KY"/>
+                        <constraint firstAttribute="trailing" secondItem="kit-cN-Pmj" secondAttribute="trailing" constant="15" id="B4g-d3-xh5"/>
+                        <constraint firstItem="Tdj-vA-BSL" firstAttribute="centerY" secondItem="gTm-27-ifT" secondAttribute="centerY" id="fxf-tD-l0r"/>
+                        <constraint firstItem="kit-cN-Pmj" firstAttribute="centerY" secondItem="gTm-27-ifT" secondAttribute="centerY" id="yKx-ms-i1j"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="gTm-27-ifT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8HW-P4-P8e"/>
+                <constraint firstItem="uEZ-Gb-xgf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="BaI-60-jI7"/>
+                <constraint firstItem="uEZ-Gb-xgf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UVE-nU-EA6"/>
+                <constraint firstAttribute="trailing" secondItem="gTm-27-ifT" secondAttribute="trailing" id="Wpe-yE-iA5"/>
+                <constraint firstAttribute="bottom" secondItem="gTm-27-ifT" secondAttribute="bottom" id="YO1-Yw-B9Q"/>
+                <constraint firstAttribute="trailing" secondItem="uEZ-Gb-xgf" secondAttribute="trailing" id="YyJ-qf-WRx"/>
+                <constraint firstItem="gTm-27-ifT" firstAttribute="top" secondItem="uEZ-Gb-xgf" secondAttribute="bottom" constant="5" id="ftL-5Y-HSe"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="person_right.png" width="25" height="25"/>
+    </resources>
+</document>

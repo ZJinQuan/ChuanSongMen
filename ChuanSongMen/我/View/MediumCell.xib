@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mediumCell" rowHeight="172" id="KGk-i7-Jjw" customClass="MediumCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="172"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="171.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZV5-Hg-SvL">
+                        <rect key="frame" x="5" y="5" width="365" height="161.5"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZV5-Hg-SvL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="2CP-1W-dfO"/>
+                    <constraint firstAttribute="bottom" secondItem="ZV5-Hg-SvL" secondAttribute="bottom" constant="5" id="fSt-vb-y8h"/>
+                    <constraint firstItem="ZV5-Hg-SvL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="hYd-O1-i1U"/>
+                    <constraint firstAttribute="trailing" secondItem="ZV5-Hg-SvL" secondAttribute="trailing" constant="5" id="z8f-r0-0SB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imagView" destination="ZV5-Hg-SvL" id="ddH-L9-XPe"/>
+            </connections>
+            <point key="canvasLocation" x="129.5" y="260"/>
+        </tableViewCell>
+    </objects>
+</document>

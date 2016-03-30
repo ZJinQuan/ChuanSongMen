@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController">
+            <connections>
+                <outlet property="searchTextField" destination="sC7-dU-lKI" id="7B4-lx-WkN"/>
+                <outlet property="tableView" destination="pa5-4M-lZJ" id="zv9-8W-9A4"/>
+                <outlet property="topView" destination="e6g-4x-pLa" id="BeI-1j-geH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJa-hh-lMN">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e6g-4x-pLa">
+                            <rect key="frame" x="10" y="25" width="249" height="35"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconfont-sousuo.png" translatesAutoresizingMaskIntoConstraints="NO" id="AN7-cg-sMi">
+                                    <rect key="frame" x="2" y="5" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="25" id="aZz-HH-6Bx"/>
+                                        <constraint firstAttribute="width" constant="25" id="n4a-w5-G5a"/>
+                                    </constraints>
+                                </imageView>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入用户名或关键字" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sC7-dU-lKI">
+                                    <rect key="frame" x="27" y="3" width="222" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="LM7-7m-98q"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="sC7-dU-lKI" firstAttribute="top" secondItem="e6g-4x-pLa" secondAttribute="top" constant="3" id="8N7-lv-ypE"/>
+                                <constraint firstItem="sC7-dU-lKI" firstAttribute="leading" secondItem="AN7-cg-sMi" secondAttribute="trailing" id="AUd-a5-YRi"/>
+                                <constraint firstAttribute="trailing" secondItem="sC7-dU-lKI" secondAttribute="trailing" id="AhS-sM-STk"/>
+                                <constraint firstAttribute="height" constant="35" id="DBe-io-uh5"/>
+                                <constraint firstItem="AN7-cg-sMi" firstAttribute="top" secondItem="e6g-4x-pLa" secondAttribute="top" constant="5" id="OrP-Tw-FRc"/>
+                                <constraint firstItem="AN7-cg-sMi" firstAttribute="leading" secondItem="e6g-4x-pLa" secondAttribute="leading" constant="2" id="P5g-Le-qB4"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rd-sZ-kvb">
+                            <rect key="frame" x="269" y="29" width="46" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="2gl-BR-AFQ"/>
+                                <constraint firstAttribute="width" constant="46" id="BH2-3u-Ydm"/>
+                            </constraints>
+                            <state key="normal" title="取消">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancleAction:" destination="-1" eventType="touchUpInside" id="cQc-T4-eUL"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.45490196078431372" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="e6g-4x-pLa" firstAttribute="leading" secondItem="ZJa-hh-lMN" secondAttribute="leading" constant="10" id="71t-rd-0Su"/>
+                        <constraint firstItem="1rd-sZ-kvb" firstAttribute="leading" secondItem="e6g-4x-pLa" secondAttribute="trailing" constant="10" id="KqP-V7-Fwa"/>
+                        <constraint firstItem="1rd-sZ-kvb" firstAttribute="top" secondItem="ZJa-hh-lMN" secondAttribute="top" constant="29" id="LxF-k3-4w6"/>
+                        <constraint firstAttribute="height" constant="65" id="iiv-wl-6GN"/>
+                        <constraint firstItem="e6g-4x-pLa" firstAttribute="top" secondItem="ZJa-hh-lMN" secondAttribute="top" constant="25" id="tLY-Sd-DWw"/>
+                        <constraint firstAttribute="trailing" secondItem="1rd-sZ-kvb" secondAttribute="trailing" constant="5" id="xGQ-oC-YqH"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pa5-4M-lZJ">
+                    <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="pa5-4M-lZJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0bj-Qs-rcO"/>
+                <constraint firstItem="ZJa-hh-lMN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0pn-ne-S8M"/>
+                <constraint firstItem="pa5-4M-lZJ" firstAttribute="top" secondItem="ZJa-hh-lMN" secondAttribute="bottom" id="Po0-95-O3g"/>
+                <constraint firstItem="ZJa-hh-lMN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="r3D-vx-GDE"/>
+                <constraint firstAttribute="trailing" secondItem="pa5-4M-lZJ" secondAttribute="trailing" id="rLL-0o-8bC"/>
+                <constraint firstAttribute="bottom" secondItem="pa5-4M-lZJ" secondAttribute="bottom" id="x27-1M-AW8"/>
+                <constraint firstAttribute="trailing" secondItem="ZJa-hh-lMN" secondAttribute="trailing" id="x4x-BD-pPL"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="iconfont-sousuo.png" width="64" height="64"/>
+    </resources>
+</document>

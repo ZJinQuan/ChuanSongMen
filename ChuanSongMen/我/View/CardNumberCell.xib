@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="numberCell" id="KGk-i7-Jjw" customClass="CardNumberCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公民身份证号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ma-gi-YcC">
+                        <rect key="frame" x="10" y="11" width="127" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="I5Z-V8-XV8"/>
+                            <constraint firstAttribute="width" constant="127" id="MMK-c9-i1M"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvl-rl-i7R">
+                        <rect key="frame" x="0.0" y="41" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="CuJ-nS-1Qh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_back 拷贝 2.png" translatesAutoresizingMaskIntoConstraints="NO" id="tOV-v4-b2E">
+                        <rect key="frame" x="295" y="12" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="81f-6r-Hsq"/>
+                            <constraint firstAttribute="height" constant="20" id="Odi-wy-1hv"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tOV-v4-b2E" firstAttribute="leading" secondItem="yvl-rl-i7R" secondAttribute="trailing" id="Ee2-ye-PAn"/>
+                    <constraint firstItem="4Ma-gi-YcC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TFu-m1-Ukf"/>
+                    <constraint firstItem="tOV-v4-b2E" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZEY-8R-dWu"/>
+                    <constraint firstItem="4Ma-gi-YcC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="luo-2X-1va"/>
+                    <constraint firstAttribute="bottom" secondItem="yvl-rl-i7R" secondAttribute="bottom" constant="1" id="m3N-G1-NiR"/>
+                    <constraint firstAttribute="trailing" secondItem="tOV-v4-b2E" secondAttribute="trailing" constant="5" id="pI3-GI-h5x"/>
+                    <constraint firstItem="yvl-rl-i7R" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wWb-mo-dEm"/>
+                    <constraint firstAttribute="trailing" secondItem="yvl-rl-i7R" secondAttribute="trailing" id="x9F-Vs-pkt"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Ee2-ye-PAn"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="user_back 拷贝 2.png" width="36" height="36"/>
+    </resources>
+</document>

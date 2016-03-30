@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchFriendCell" rowHeight="64" id="KGk-i7-Jjw" customClass="SearchFriendResultCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="04L-rh-HmZ">
+                        <rect key="frame" x="15" y="7" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="IHo-I7-qye"/>
+                            <constraint firstAttribute="height" constant="50" id="S11-JT-G8m"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="少将个个" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rL7-3M-jjD">
+                        <rect key="frame" x="80" y="17" width="145" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="XfT-41-LUb"/>
+                            <constraint firstAttribute="width" constant="145" id="cub-l6-9gj"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t63-pX-Ifw">
+                        <rect key="frame" x="0.0" y="61" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="WBE-gc-aBQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2Z-aX-pFH" customClass="UIButtonExtension">
+                        <rect key="frame" x="251" y="11" width="54" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="54" id="9yA-FW-Hkn"/>
+                            <constraint firstAttribute="height" constant="35" id="heg-GD-Uno"/>
+                        </constraints>
+                        <state key="normal" title="添加">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="t63-pX-Ifw" secondAttribute="trailing" id="C1C-Ec-J9X"/>
+                    <constraint firstItem="t63-pX-Ifw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="EYD-kR-3HG"/>
+                    <constraint firstAttribute="bottom" secondItem="t63-pX-Ifw" secondAttribute="bottom" constant="1" id="GlS-em-Sbl"/>
+                    <constraint firstAttribute="trailing" secondItem="S2Z-aX-pFH" secondAttribute="trailing" constant="15" id="IJK-8Y-gkq"/>
+                    <constraint firstItem="04L-rh-HmZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="WBn-wt-fDq"/>
+                    <constraint firstItem="rL7-3M-jjD" firstAttribute="leading" secondItem="04L-rh-HmZ" secondAttribute="trailing" constant="15" id="eFj-VO-GUM"/>
+                    <constraint firstItem="S2Z-aX-pFH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-3" id="ej7-QP-hlj"/>
+                    <constraint firstItem="rL7-3M-jjD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rWB-jc-1IY"/>
+                    <constraint firstItem="04L-rh-HmZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vIa-7Z-pdD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addButton" destination="S2Z-aX-pFH" id="MF2-F3-Fin"/>
+                <outlet property="headerImage" destination="04L-rh-HmZ" id="HEk-Kh-jCT"/>
+                <outlet property="userNameLabel" destination="rL7-3M-jjD" id="irI-oP-z4S"/>
+            </connections>
+            <point key="canvasLocation" x="280" y="318"/>
+        </tableViewCell>
+    </objects>
+</document>
