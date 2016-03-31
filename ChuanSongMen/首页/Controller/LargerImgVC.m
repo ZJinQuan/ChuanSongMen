@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSMutableArray * dataArr;
 @property (nonatomic,strong) UILabel *bottomLabel;
 
-
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end
 
@@ -97,23 +97,48 @@
         [imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:BasePicAppending@"%@",models.url]] placeholderImage:[UIImage imageNamed:@"pic1@2x"]];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         
-        UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+        
+        UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
         // 设置快速手势的方向向下
-        swipeDown.direction = UISwipeGestureRecognizerDirectionDown;
+        swipeDown.direction = UISwipeGestureRecognizerDirectionUp;
         
 //        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
-        [imageView addGestureRecognizer:swipeDown];
+        [_scrollViews addGestureRecognizer:swipeDown];
         imageView.tag = 1000;
+        self.imageView = imageView;
+        
         
     }
 }
 #pragma  mark ========== 手势 ============
-- (void)tapAction
+- (void)tapAction:(UISwipeGestureRecognizer *)swipe
 {
-    _offSet = _scrollViews.contentOffset.x;
-    NSLog(@"%f",_offSet);
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    // 判断手势的方向
+    if (swipe.direction == UISwipeGestureRecognizerDirectionUp)
+    {
+        // 动画
+        [UIView beginAnimations:nil context:NULL];
+        // 多久之后执行动画
+        //        [UIView setAnimationDelay:1];
+        // 动画持续时间
+        [UIView setAnimationDuration:0.1];
+        
+        // 代码写在中间...
+        CGRect rect = _scrollViews.frame;
+        rect.origin.y = -300;
+        _scrollViews.frame = rect;
+        
+        // 提交动画
+        [UIView commitAnimations];
+
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }
 }
+
+
 
 #pragma mark - subSV delegate
 
