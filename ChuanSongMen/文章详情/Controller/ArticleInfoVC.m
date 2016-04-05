@@ -56,9 +56,14 @@
 
 #pragma mark ========= 获取文章详情 ===================
 - (void)requestArticleDetailInfoFromServer{
+    
+    NSInteger uid =   [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid ] stringValue];
+    
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:app.userId forKey:@"userid"];
+    [params setObject:userid forKey:@"userid"];
     [params  setObject:self.documentid forKey:@"documentid"];
     [self showHUD:nil];
     [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"userqueryDocumentsDetails"] params:params result:^(id responseObj, NSError *error) {
@@ -113,10 +118,15 @@
         [self showMessage:@"评论不能为空"];
     }else{
         [self showHUD:nil];
+        
+        NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+        
+        NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+        
         AppDelegate *app = [UIApplication sharedApplication].delegate;
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         
-        [params setObject:app.userId forKey:@"discuss.user.id"];
+        [params setObject:userid forKey:@"discuss.user.id"];
         [params setObject:self.documentid forKey:@"discuss.document.id"];
         [params setObject:_bottomTextView.text forKey:@"discuss.info"];
         

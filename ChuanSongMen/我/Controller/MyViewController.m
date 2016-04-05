@@ -144,10 +144,15 @@
 }
 #pragma mark ======== 第一个表视图网络请求 ==============
 - (void)firstTableViewRequestFormServer{
+    
+    NSInteger uid =   [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+    
     [self.firstSourceArray  removeAllObjects];
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     NSMutableDictionary *pararm = [NSMutableDictionary dictionary];
-    [pararm setObject:app.userId forKey:@"userid"];
+    [pararm setObject:userid forKey:@"userid"];
     [pararm setObject:@"1" forKey:@"type"];
     [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"userqueryDocuments"] params:pararm result:^(id responseObj, NSError *error) {
         if ([responseObj[@"result"] intValue] == 0) {
@@ -164,9 +169,14 @@
 #pragma mark ======== 第二个表视图网络请求 ==============
 - (void)secondTableViewRequestFormServer{
     [_secondSourceArray removeAllObjects];
+    
+    NSInteger uid =   [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+    
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     NSMutableDictionary *pararm = [NSMutableDictionary dictionary];
-    [pararm setObject:app.userId forKey:@"userid"];
+    [pararm setObject:userid forKey:@"userid"];
     [pararm setObject:@"1" forKey:@"type"];
     [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"userqueryUserPrint"] params:pararm result:^(id responseObj, NSError *error) {
         if ([responseObj[@"result"] intValue] == 0) {
@@ -190,9 +200,15 @@
 #pragma mark ======== 第三个表视图网络请求 ==============
 - (void)thirdTableViewRequestFormServer{
     [self.thirdSourceArray  removeAllObjects];
+    
+    NSInteger uid =   [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+    
+    
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     NSMutableDictionary *pararm = [NSMutableDictionary dictionary];
-    [pararm setObject:app.userId forKey:@"userid"];
+    [pararm setObject:userid forKey:@"userid"];
     [pararm setObject:@"4" forKey:@"type"];
     [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"userqueryDocuments"] params:pararm result:^(id responseObj, NSError *error) {
         if ([responseObj[@"result"] intValue] == 0) {
@@ -210,7 +226,12 @@
 #pragma amrk =====  从服务器获取个人信息 ============
 - (void)requestPersonalInfoFromServer{
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-    NSDictionary *dic = [NSDictionary dictionaryWithObject:app.userId forKey:@"id"];
+    
+    NSInteger uid =   [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+    
+    NSDictionary *dic = [NSDictionary dictionaryWithObject:userid forKey:@"id"];
     [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"usergetUserIn"] params:dic result:^(id responseObj, NSError *error) {
         if ([responseObj[@"result"] intValue] == 0) {
             UserInformationModel *model = [UserInformationModel initWithDictionary:responseObj];
@@ -384,9 +405,14 @@
     if (self.commentTextView.text.length < 1 || [self.commentTextView.text isEqualToString:@"我也说一句"]) {
         [self showMessage:@"评论不能为空"];
     }else{
+        
+        NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+        
+        NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+        
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         AppDelegate *app = [UIApplication sharedApplication].delegate;
-        [params setObject:app.userId forKey:@"discuss.user.id"];
+        [params setObject:userid forKey:@"discuss.user.id"];
         [params setObject:_mainModel.ids forKey:@"discuss.document.id"];
         [params setObject:self.commentTextView.text forKey:@"discuss.info"];
         

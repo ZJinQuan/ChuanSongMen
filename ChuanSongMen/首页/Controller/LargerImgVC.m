@@ -77,6 +77,7 @@
     [self initSubScrollView];
 }
 - (void)initSubScrollView {
+
     for (int i = 0; i < _imgDataArr.count; i++) {
         
         ImageModel * models = _dataArr[i];
@@ -148,8 +149,6 @@
         int currentIndex = (int)scrollView.contentOffset.x / KScrennWith;
          _bottomLabel.text = [NSString stringWithFormat:@"%d/%lu", currentIndex + 1, (unsigned long)_imgDataArr.count];
     }
-    
-    
 }
 #pragma mark ======== 这是通过手势放大或缩小图片 ==============
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView

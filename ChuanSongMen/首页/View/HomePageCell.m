@@ -43,8 +43,13 @@
 #pragma mark =========   点赞行为 ===================
 - (void)operationCellZan{
     NSLog(@"赞");
+    
+    NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:_app.userId forKey:@"userId"];
+    [params setObject:userid forKey:@"userId"];
     [params setObject:_model.ids forKey:@"documentId"];
     
     [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"useraddTopOrCancleTop"] params:params result:^(id responseObj, NSError *error) {
@@ -580,9 +585,14 @@
         case 1:
         {
             NSLog(@"分享到主页");
+            
+            NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+            
+            NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+            
             AppDelegate *app = [UIApplication sharedApplication].delegate;
             NSMutableDictionary *params = [NSMutableDictionary dictionary];
-            [params setObject:app.userId forKey:@"user.id"];
+            [params setObject:userid forKey:@"user.id"];
             [params setObject:@"11" forKey:@"document.info"];
             [params setObject:_model.beforDocumentId forKey:@"document.id"];
             [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"usertranspondDocument"] params:params result:^(id responseObj, NSError *error) {

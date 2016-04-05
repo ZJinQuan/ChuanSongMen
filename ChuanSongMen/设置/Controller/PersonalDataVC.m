@@ -63,7 +63,12 @@
 #pragma amrk =====  从服务器获取个人信息 ============
 - (void)requestPersonalInfoFromServer{
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-    NSDictionary *dic = [NSDictionary dictionaryWithObject:app.userId forKey:@"id"];
+    
+    NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+    
+    NSDictionary *dic = [NSDictionary dictionaryWithObject:userid forKey:@"id"];
     [self showHUD:nil];
     [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"usergetUserIn"] params:dic result:^(id responseObj, NSError *error) {
         [self hideHUD];
@@ -120,7 +125,12 @@
     [self showHUD:@"正在保存"];
     AppDelegate *app =[UIApplication sharedApplication].delegate;
     NSMutableDictionary *pararm = [NSMutableDictionary dictionary];
-    [pararm setObject:app.userId forKey:@"id"];
+    
+    NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+    
+    [pararm setObject:userid forKey:@"id"];
     [pararm setObject:_nickName forKey:@"niCheng"];
     [pararm setObject:_email forKey:@"raemail"];
     [pararm setObject:_phoneNumber forKey:@"raphone"];

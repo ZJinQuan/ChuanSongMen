@@ -169,9 +169,14 @@
     if (self.commentTextView.text.length < 1 || [self.commentTextView.text isEqualToString:@"我也说一句"]) {
         [self showMessage:@"评论不能为空"];
     }else{
+        
+        NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+        
+        NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+        
         AppDelegate *app = [UIApplication sharedApplication].delegate;
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        [params setObject:app.userId forKey:@"discuss.user.id"];
+        [params setObject:userid forKey:@"discuss.user.id"];
         [params setObject:_mainModel.ids forKey:@"discuss.document.id"];
         [params setObject:self.commentTextView.text forKey:@"discuss.info"];
         

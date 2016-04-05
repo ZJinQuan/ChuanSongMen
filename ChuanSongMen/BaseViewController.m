@@ -19,7 +19,15 @@
    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = RGB(245, 245, 245);
-    self.navigationController.navigationBar.tintColor = navBarColor(0.0, 116.0, 180.0);
+    
+    self.navigationController.navigationBar.barTintColor=RGB(245, 245, 245);
+    
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 44,[UIScreen mainScreen].bounds.size.width, 1)];
+    line.backgroundColor = [UIColor blackColor];
+    [self.navigationController.navigationBar addSubview:line];
+    
+    
+    
 #pragma mark ---初始化导航栏左右侧按钮 ================================
     [self initBaseNavigationLeftBar];
     [self initBaseNavigationRightBar];
@@ -30,7 +38,7 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
     titleLabel.font = [UIFont boldSystemFontOfSize:17];
     titleLabel.text = @"";
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor blackColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLable = titleLabel;
     self.navigationItem.titleView = titleLabel;

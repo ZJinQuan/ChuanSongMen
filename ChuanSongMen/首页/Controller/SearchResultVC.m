@@ -192,10 +192,12 @@
     FriendLookupCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     AppDelegate *app = [UIApplication sharedApplication].delegate;
    
-   
+    NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
         
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        [params setObject:app.userId forKey:@"friend.user.id"];
+        [params setObject:userid forKey:@"friend.user.id"];
         [params setObject:cell.model.ids forKey:@"friend.beuser.id"];
         [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"useraddUserFriend"] params:params result:^(id responseObj, NSError *error) {
             if ([responseObj[@"result"] intValue] == 0) {

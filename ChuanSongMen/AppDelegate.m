@@ -21,6 +21,8 @@
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
 
+#import "TabBarController.h"
+
 //腾讯开放平台（对应QQ和QQ空间）SDK头文件
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/QQApiInterface.h>
@@ -32,6 +34,10 @@
 #import "WeiboSDK.h"
 
 #import "BaseViewController.h"
+
+//环信头文件
+#import "EaseMob.h"
+#import "EaseUI.h"
 @interface AppDelegate ()
 
 @end
@@ -128,15 +134,35 @@
             //是第一次启动
             NSLog(@"是第一次启动");
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:1] forKey:@"searchID"];
+            
+            LoginViewController *loginVc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+            
+            self.window.rootViewController = loginVc;
+            
         }else{
             NSLog(@"不是第一次启动");
+//            
+            TabBarController *tabVC = [[TabBarController alloc] init];
+            
+            self.window.rootViewController = tabVC;
         }
     
     
-    LoginViewController *loginVc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//    NSString *user = [userDefault objectForKey:@"user"];
+//    NSString *password = [userDefault objectForKey:@"password"];
+//    NSString *autoLogin = [userDefault objectForKey:@"autoLogin"];
+//    
+//    
+//    if (<#condition#>) {
+//        <#statements#>
+//    }
     
-    self.window.rootViewController = loginVc;
-    
+//    
+//    LoginViewController *loginVc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+//    
+//    self.window.rootViewController = loginVc;
+//
     //2.设置Window为主窗口并显示出来
     [self.window makeKeyAndVisible];
     
@@ -151,10 +177,24 @@
     manager.shouldToolbarUsesTextFieldTintColor = YES;
     manager.enableAutoToolbar = YES;
     
+    //registerSDKWithAppKey:注册的appKey，详细见下面注释。
+    //apnsCertName:推送证书名(不需要加后缀)，详细见下面注释。
+    [[EaseMob sharedInstance] registerSDKWithAppKey:@"chuansongmen#csm" apnsCertName:@"chuansongmen"];
+    [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    
+    [[EaseSDKHelper shareHelper] easemobApplication:application
+                      didFinishLaunchingWithOptions:launchOptions
+                                             appkey:@"chuansongmen#csm"
+                                       apnsCertName:@"chuansongmen"
+                                        otherConfig:@{kSDKConfigEnableConsoleLogger:[NSNumber numberWithBool:YES]}];
+    
     return YES;
 }
 
 
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -164,10 +204,14 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    [[EaseMob sharedInstance] applicationDidEnterBackground:application];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+    [[EaseMob sharedInstance] applicationWillEnterForeground:application];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -176,6 +220,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    [[EaseMob sharedInstance] applicationWillTerminate:application];
 }
 
 @end

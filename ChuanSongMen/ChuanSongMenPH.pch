@@ -6,8 +6,11 @@
 //  Copyright (c) 2015年 apple. All rights reserved.
 //
 
+
+
 #ifndef ChuanSongMen_ChuanSongMenPH_pch
 #define ChuanSongMen_ChuanSongMenPH_pch
+
 
 #define isIos7System [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0
 
@@ -28,5 +31,9 @@
 #define RGB(A, B, C)    [UIColor colorWithRed:A/255.0 green:B/255.0 blue:C/255.0 alpha:1.0]
 
 #import "UIUtils.h"
+
+#import "UIView+Extension.h"
+#import "HTTPRequestManager.h"
+#import "BaseModel.h"
 
 #endif

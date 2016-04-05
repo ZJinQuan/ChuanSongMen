@@ -54,7 +54,7 @@
 -(void)viewWillAppear:(BOOL)animated{
 
     [super viewWillAppear:animated];
-
+    
     self.navigationController.navigationBarHidden = NO;
     
     //发布内容成功后的通知
@@ -81,6 +81,18 @@
     
     
     [self addTableView];//增加表视图
+    
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 44)];
+    titleLabel.font = [UIFont boldSystemFontOfSize:20];
+    
+    titleLabel.textColor = [UIColor blackColor];
+    
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    titleLabel.text = @"主页";
+   
+    self.navigationItem.titleView = titleLabel;
     
     
 #pragma mark ===== 刷新列表 ==============
@@ -110,11 +122,18 @@
 - (void)requestDataFromSerer:(int)pageIndex{
 //    [self showHUD:@"正在加载数据..."];
     
+    NSInteger uid =   [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid ] stringValue];
+    
+    NSLog(@"%@",userid);
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     self.myApp = [UIApplication sharedApplication].delegate;
-   [params setObject:_myApp.userId forKey:@"document.user.id"];
+//    [params setObject:_myApp.userId forKey:@"document.user.id"];
+    [params setObject:userid forKey:@"document.user.id"];
     [params setObject:[NSNumber numberWithInt:10] forKey:@"pageModel.pageSize"];
-        [params setObject:[NSNumber numberWithInt:pageIndex] forKey:@"pageModel.pageIndex"];
+    [params setObject:[NSNumber numberWithInt:pageIndex] forKey:@"pageModel.pageIndex"];
     NSLog(@"params == %@", params);
     [[HTTPRequestManager sharedManager] POST:@"http://120.24.46.199/Door/usergetDocuments" params:params result:^(id responseObj, NSError *error) {
         [self hideHUD];
@@ -139,8 +158,10 @@
 - (void)initBaseNavigationLeftBar{
     //导航栏左侧按钮
     UIButton *leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    leftButton.frame=CGRectMake(0, 0, 30, 30);
-    [leftButton setImage:[UIImage imageNamed:@"nav_search1.png"] forState:UIControlStateNormal];
+    leftButton.frame=CGRectMake(0, 0, 50, 30);
+    [leftButton setTitle:@"搜查" forState:UIControlStateNormal];
+    [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [leftButton setImage:[UIImage imageNamed:@"nav_search1.png"] forState:UIControlStateNormal];
     [leftButton addTarget:self action:@selector(leftPage) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBarButton=[[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.leftBarButtonItem=leftBarButton;
@@ -148,8 +169,10 @@
 //导航栏右侧按钮
 - (void)initBaseNavigationRightBar{
     UIButton *rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    rightButton.frame=CGRectMake(0, 0, 30, 30);
-    [rightButton setImage:[UIImage imageNamed:@"nav_release.png"] forState:UIControlStateNormal];
+    rightButton.frame=CGRectMake(0, 0, 50, 30);
+    [rightButton setTitle:@"发布" forState:UIControlStateNormal];
+    [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [rightButton setImage:[UIImage imageNamed:@"nav_release.png"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(rightPage) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *rightBarButton=[[UIBarButtonItem alloc] initWithCustomView:rightButton];
@@ -290,8 +313,12 @@
         [self showMessage:@"评论不能为空"];
     }else{
 
+        NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+        
+        NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+        
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        [params setObject:_myApp.userId forKey:@"discuss.user.id"];
+        [params setObject:userid forKey:@"discuss.user.id"];
         [params setObject:_mainModel.ids forKey:@"discuss.document.id"];
         [params setObject:_homeCommentTextView.text forKey:@"discuss.info"];
         

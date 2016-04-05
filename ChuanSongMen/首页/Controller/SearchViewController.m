@@ -97,9 +97,13 @@
         [self.articleArray removeAllObjects];
         [self.friendArray removeAllObjects];
         
+        NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+        
+        NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+        
         AppDelegate *app = [UIApplication sharedApplication].delegate;
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        [params setObject:app.userId forKey:@"userId"];
+        [params setObject:userid forKey:@"userId"];
         [params setObject:textField.text forKey:@"condition"];
         self.searchID += 1;
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:self.searchID] forKey:@"searchID"];

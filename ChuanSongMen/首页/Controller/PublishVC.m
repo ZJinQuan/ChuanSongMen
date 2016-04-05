@@ -25,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-     self.titleLable.text = @"选择发布方式";
     [self changeLayerOfSomeControl:self.nextStepButton];
     
     self.imagesArray = [NSArray arrayWithObjects:@"免费", @"悬赏", @"guang", nil];
@@ -35,6 +34,16 @@
     self.tableView.rowHeight = 80;
     
 
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 44)];
+    titleLabel.font = [UIFont boldSystemFontOfSize:20];
+    
+    titleLabel.textColor = [UIColor blackColor];
+    
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    titleLabel.text = @"选择发布方式";
+    
+    self.navigationItem.titleView = titleLabel;
 
 }
 #pragma mark ========点击下一步操作

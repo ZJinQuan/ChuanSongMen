@@ -71,9 +71,14 @@
     if (self.imageArray.count < 1) {
         [self showMessage:@"请选择图片"];
     }else{
+        
+        NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+        
+        NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+        
         AppDelegate *app = [UIApplication sharedApplication].delegate;
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        [params setObject:app.userId forKey:@"document.user.id"];
+        [params setObject:userid forKey:@"document.user.id"];
         [params setObject:self.textField.text forKey:@"document.info"];
         [params setObject:@"1" forKey:@"document.isSee"];
         int number =  arc4random() % 100000 + 890000;

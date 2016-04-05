@@ -59,9 +59,14 @@
 //点赞
 - (void)praiseAction{
     NSLog(@"点赞");
+    
+    NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+    
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:app.userId forKey:@"userId"];
+    [params setObject:userid forKey:@"userId"];
     [params setObject:_model.ids forKey:@"documentId"];
     
     [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"useraddTopOrCancleTop"] params:params result:^(id responseObj, NSError *error) {
@@ -98,9 +103,14 @@
 //收藏
 - (void)collectAction{
     NSLog(@"收藏");
+    
+    NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+    
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:app.userId forKey:@"userId"];
+    [params setObject:userid forKey:@"userId"];
     [params setObject:_model.ids forKey:@"documentId"];
     
     [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"DuseraddCollectionOrCancle"] params:params result:^(id responseObj, NSError *error) {
@@ -139,9 +149,15 @@
 
 #pragma mark ======  文章详情 请求 ==================
 - (void)requestArticleDetailInfoFromServer{
+    
+    NSInteger uid =   [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid ] stringValue];
+    
+    
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:app.userId forKey:@"userid"];
+    [params setObject:userid forKey:@"userid"];
     [params  setObject:self.documentid forKey:@"documentid"];
     [self showHUD:nil];
     [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"userqueryDocumentsDetails"] params:params result:^(id responseObj, NSError *error) {
@@ -343,9 +359,13 @@
         case 1:
         {
             NSLog(@"分享到主页");
+            NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+            
+            NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+            
             AppDelegate *app = [UIApplication sharedApplication].delegate;
             NSMutableDictionary *params = [NSMutableDictionary dictionary];
-            [params setObject:app.userId forKey:@"user.id"];
+            [params setObject:userid forKey:@"user.id"];
             [params setObject:@"11" forKey:@"document.info"];
             [params setObject:_model.ids forKey:@"document.id"];
             [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"usertranspondDocument"] params:params result:^(id responseObj, NSError *error) {

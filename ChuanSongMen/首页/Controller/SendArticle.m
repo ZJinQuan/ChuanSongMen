@@ -58,6 +58,8 @@
     }else{
     self.titleLable.text = @"普通发布";
         self.publicStyle = @"1";
+        
+        
     }
  
     [_collectionView registerNib:[UINib nibWithNibName:@"AddImageCell" bundle:nil] forCellWithReuseIdentifier:@"addImageCell"];
@@ -89,10 +91,15 @@
 }
 #pragma mark ========发布按钮 ==========================
 -(void)rightPage{
+    
+    NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+    
     NSLog(@"点击开始发布广告");
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:app.userId forKey:@"document.user.id"];
+    [params setObject:userid forKey:@"document.user.id"];
     [params setObject:self.textView.text forKey:@"document.info"];
     [params setObject:@"1" forKey:@"document.isSee"];
     int number =  arc4random() % 100000 + 890000;
