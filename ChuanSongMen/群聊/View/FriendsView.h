@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UsergetMyAction.h"
 
 @interface FriendsView : UITableView
+
+
+@property (nonatomic, strong) UsergetMyAction *model;
 
 @end

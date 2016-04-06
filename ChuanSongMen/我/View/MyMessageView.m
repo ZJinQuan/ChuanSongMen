@@ -36,6 +36,7 @@
 
     //用户头像
   _headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 10, 50, 50)];
+    _headerImageView.backgroundColor = [UIColor yellowColor];
     _headerImageView.layer.cornerRadius = 5;
     _headerImageView.layer.masksToBounds = YES;
     [self addSubview:_headerImageView];

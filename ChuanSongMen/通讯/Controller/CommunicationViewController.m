@@ -38,9 +38,13 @@
     [super viewDidLoad];
     //下拉加载更多
     _pageNumber = 1;
-    [_tableView addFooterWithTarget:self action:@selector(reFreshData)];
+//    [_tableView addFooterWithTarget:self action:@selector(reFreshData)];
+    
+    [_tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(reFreshData)];
     //下拉刷新列表
-    [_tableView addHeaderWithTarget:self action:@selector(loadDataFromOriginPage)];
+//    [_tableView addHeaderWithTarget:self action:@selector(loadDataFromOriginPage)];
+
+    [_tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadDataFromOriginPage)];
     
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"HomePageCell" bundle:nil] forCellReuseIdentifier:@"cell"];
@@ -54,6 +58,7 @@
     _pageNumber = 1;
     [self requestDataFromSerer:_pageNumber];
     [_tableView headerEndRefreshing];
+//    [_tableView.header endEdi¡ting:YES];
     
 }
 
@@ -61,19 +66,29 @@
     _pageNumber ++;
     [self requestDataFromSerer:_pageNumber];
     [_tableView footerEndRefreshing];
+//    [_tableView.footer endEditing:YES];
     
 }
 
 
 - (void)requestDataFromSerer:(int)pageIndex{
     [self showHUD:@"正在加载数据..."];
+    
+    NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:[NSNumber numberWithInt:self.userId] forKey:@"document.user.id"];
+    [params setObject:@"13" forKey:@"userId"];
+//    [params setObject:[NSNumber numberWithInt:self.userId] forKey:@"document.user.id"];
     [params setObject:[NSNumber numberWithInt:10] forKey:@"pageModel.pageSize"];
     [params setObject:[NSNumber numberWithInt:pageIndex] forKey:@"pageModel.pageIndex"];
     
     [[HTTPRequestManager sharedManager] POST:@"http://120.24.46.199/Door/userqueryPayDocuments" params:params result:^(id responseObj, NSError *error) {
         [self hideHUD];
+        
+        NSLog(@"%@",responseObj[@"message"]);
+        
         if (pageIndex == 1) {
             [self.dataSourceArray removeAllObjects];
         }

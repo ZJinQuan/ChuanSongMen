@@ -238,7 +238,8 @@
             _headerView.nickName.text = model.niCheng;
             _headerView.userNameLabel.text = model.userName;
             if (![model.url isEqualToString:@""]) {
-                [_headerView.headerImageView sd_setImageWithURL:[NSURL URLWithString:model.url]];
+//                [_headerView.headerImageView sd_setImageWithURL:[NSURL URLWithString:model.url]];
+                [_headerView.headerImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://120.24.46.199/Door%@",model.url]]];
             }
             
             

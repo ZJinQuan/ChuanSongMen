@@ -188,6 +188,14 @@
 		1437AC071CAE15CE00BE6FCE /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1437AC061CAE15CE00BE6FCE /* libxml2.tbd */; };
 		14A7FEF31CAE5951001F7706 /* NewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7FEF21CAE5951001F7706 /* NewsView.m */; };
 		14A7FEF61CAE5AA5001F7706 /* FriendsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A7FEF51CAE5AA5001F7706 /* FriendsView.m */; };
+		14AE44CD1CB517AB00F2E1FE /* 发布汇-灰色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14AE44C51CB517AB00F2E1FE /* 发布汇-灰色@2x.png */; };
+		14AE44CE1CB517AB00F2E1FE /* 发布汇@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14AE44C61CB517AB00F2E1FE /* 发布汇@2x.png */; };
+		14AE44CF1CB517AB00F2E1FE /* 我-灰色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14AE44C71CB517AB00F2E1FE /* 我-灰色@2x.png */; };
+		14AE44D01CB517AB00F2E1FE /* 我@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14AE44C81CB517AB00F2E1FE /* 我@2x.png */; };
+		14AE44D11CB517AB00F2E1FE /* 消息-灰色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14AE44C91CB517AB00F2E1FE /* 消息-灰色@2x.png */; };
+		14AE44D21CB517AB00F2E1FE /* 消息@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14AE44CA1CB517AB00F2E1FE /* 消息@2x.png */; };
+		14AE44D31CB517AB00F2E1FE /* 主页-灰色@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14AE44CB1CB517AB00F2E1FE /* 主页-灰色@2x.png */; };
+		14AE44D41CB517AB00F2E1FE /* 主页@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14AE44CC1CB517AB00F2E1FE /* 主页@2x.png */; };
 		14F5D9951CB352D40059181C /* EmailTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F5D9841CB352D40059181C /* EmailTool.m */; };
 		14F5D9961CB352D40059181C /* Md5.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F5D9861CB352D40059181C /* Md5.m */; };
 		14F5D9971CB352D40059181C /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F5D9881CB352D40059181C /* NSDictionary+Extension.m */; };
@@ -964,6 +972,14 @@
 		14A7FEF21CAE5951001F7706 /* NewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsView.m; sourceTree = "<group>"; };
 		14A7FEF41CAE5AA5001F7706 /* FriendsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsView.h; sourceTree = "<group>"; };
 		14A7FEF51CAE5AA5001F7706 /* FriendsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsView.m; sourceTree = "<group>"; };
+		14AE44C51CB517AB00F2E1FE /* 发布汇-灰色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发布汇-灰色@2x.png"; sourceTree = "<group>"; };
+		14AE44C61CB517AB00F2E1FE /* 发布汇@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发布汇@2x.png"; sourceTree = "<group>"; };
+		14AE44C71CB517AB00F2E1FE /* 我-灰色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我-灰色@2x.png"; sourceTree = "<group>"; };
+		14AE44C81CB517AB00F2E1FE /* 我@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我@2x.png"; sourceTree = "<group>"; };
+		14AE44C91CB517AB00F2E1FE /* 消息-灰色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息-灰色@2x.png"; sourceTree = "<group>"; };
+		14AE44CA1CB517AB00F2E1FE /* 消息@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息@2x.png"; sourceTree = "<group>"; };
+		14AE44CB1CB517AB00F2E1FE /* 主页-灰色@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页-灰色@2x.png"; sourceTree = "<group>"; };
+		14AE44CC1CB517AB00F2E1FE /* 主页@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "主页@2x.png"; sourceTree = "<group>"; };
 		14F5D9831CB352D40059181C /* EmailTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailTool.h; sourceTree = "<group>"; };
 		14F5D9841CB352D40059181C /* EmailTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailTool.m; sourceTree = "<group>"; };
 		14F5D9851CB352D40059181C /* Md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Md5.h; sourceTree = "<group>"; };
@@ -1301,7 +1317,7 @@
 		18A9E7DA1C8457F50023C4FA /* camerasdk_pic_loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camerasdk_pic_loading.png; sourceTree = "<group>"; };
 		18BA2FD81C9BB9E6008D4BD0 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		18BA2FD91C9BB9E6008D4BD0 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
-		18C015A61BA3B89900DAFB13 /* ChuanSongMen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChuanSongMen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18C015A61BA3B89900DAFB13 /* 传送门.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "传送门.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C015AA1BA3B89900DAFB13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C015AB1BA3B89900DAFB13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18C015AD1BA3B89900DAFB13 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2827,7 +2843,7 @@
 		18C015A71BA3B89900DAFB13 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				18C015A61BA3B89900DAFB13 /* ChuanSongMen.app */,
+				18C015A61BA3B89900DAFB13 /* 传送门.app */,
 				18C015BF1BA3B89900DAFB13 /* ChuanSongMenTests.xctest */,
 			);
 			name = Products;
@@ -3260,6 +3276,14 @@
 				18C0162D1BA3CF1500DAFB13 /* xuan@2x.png */,
 				18233E801C83FE11009976AB /* unchecked.png */,
 				18C0162E1BA3CF1500DAFB13 /* zhifubao@2x.png */,
+				14AE44C51CB517AB00F2E1FE /* 发布汇-灰色@2x.png */,
+				14AE44C61CB517AB00F2E1FE /* 发布汇@2x.png */,
+				14AE44C71CB517AB00F2E1FE /* 我-灰色@2x.png */,
+				14AE44C81CB517AB00F2E1FE /* 我@2x.png */,
+				14AE44C91CB517AB00F2E1FE /* 消息-灰色@2x.png */,
+				14AE44CA1CB517AB00F2E1FE /* 消息@2x.png */,
+				14AE44CB1CB517AB00F2E1FE /* 主页-灰色@2x.png */,
+				14AE44CC1CB517AB00F2E1FE /* 主页@2x.png */,
 			);
 			name = Images;
 			path = ChuanSongMen/Images;
@@ -3505,7 +3529,7 @@
 			);
 			name = ChuanSongMen;
 			productName = ChuanSongMen;
-			productReference = 18C015A61BA3B89900DAFB13 /* ChuanSongMen.app */;
+			productReference = 18C015A61BA3B89900DAFB13 /* 传送门.app */;
 			productType = "com.apple.product-type.application";
 		};
 		18C015BE1BA3B89900DAFB13 /* ChuanSongMenTests */ = {
@@ -3581,7 +3605,9 @@
 				18C016601BA3CF1500DAFB13 /* xuan@2x.png in Resources */,
 				1882F8101C9A5BD400927457 /* SearchFriendResultCell.xib in Resources */,
 				FFE7D3A81CA4E575006BD6F1 /* PreviewVideoCell.xib in Resources */,
+				14AE44CF1CB517AB00F2E1FE /* 我-灰色@2x.png in Resources */,
 				1805538D1C8FCC0400381181 /* trash_btn_pic.png in Resources */,
+				14AE44D01CB517AB00F2E1FE /* 我@2x.png in Resources */,
 				1886A0C01C97FA9700EEE11C /* RegisterViewController.xib in Resources */,
 				185FD76E1C8D6B3600EDCF0D /* CardCell.xib in Resources */,
 				1437AB831CAE141C00BE6FCE /* user@2x.png in Resources */,
@@ -3605,6 +3631,7 @@
 				18233E6D1C83F776009976AB /* 0007.png in Resources */,
 				18C0165E1BA3CF1500DAFB13 /* tab_i_pre@2x.png in Resources */,
 				FF80407D1CA294BD00990BCA /* FriendLookupCell.xib in Resources */,
+				14AE44D41CB517AB00F2E1FE /* 主页@2x.png in Resources */,
 				FFE7D3911CA4CE4F006BD6F1 /* CDPPlay@2x.png in Resources */,
 				1882F8181C9A654F00927457 /* ArticleInfoVC.xib in Resources */,
 				FFE7D3921CA4CE4F006BD6F1 /* CDPSlider@2x.png in Resources */,
@@ -3690,6 +3717,7 @@
 				18C0163D1BA3CF1500DAFB13 /* communication_btn_add@2x.png in Resources */,
 				18C016451BA3CF1500DAFB13 /* follow_w@2x.png in Resources */,
 				FFE7D38E1CA4CE4F006BD6F1 /* CDPPause.png in Resources */,
+				14AE44CD1CB517AB00F2E1FE /* 发布汇-灰色@2x.png in Resources */,
 				1437AB551CAE141C00BE6FCE /* chatBar_colorMore_camera@2x.png in Resources */,
 				18C0164E1BA3CF1500DAFB13 /* login_btn@2x.png in Resources */,
 				1437AB7A1CAE141C00BE6FCE /* VoiceSearchFeedback012@2x.png in Resources */,
@@ -3755,11 +3783,13 @@
 				1437AB5C1CAE141C00BE6FCE /* chatBar_colorMore_videoCall@2x.png in Resources */,
 				18C016531BA3CF1500DAFB13 /* nav_release@2x.png in Resources */,
 				1437AB6A1CAE141C00BE6FCE /* messageToolbarBg@2x.png in Resources */,
+				14AE44D11CB517AB00F2E1FE /* 消息-灰色@2x.png in Resources */,
 				FFE7D38D1CA4CE4F006BD6F1 /* CDPBack@3x.png in Resources */,
 				185FD7861C8D82E700EDCF0D /* PayMoneyVC.xib in Resources */,
 				1831D1271C8AE02D00FF4D7C /* share_reward.png in Resources */,
 				18C0163E1BA3CF1500DAFB13 /* communication_btn_add1@2x.png in Resources */,
 				18233E6C1C83F776009976AB /* 0005.png in Resources */,
+				14AE44D31CB517AB00F2E1FE /* 主页-灰色@2x.png in Resources */,
 				1437AB811CAE141C00BE6FCE /* VoiceSearchFeedback019@2x.png in Resources */,
 				1437AB541CAE141C00BE6FCE /* chatBar_colorMore_audioCallSelected@2x.png in Resources */,
 				18C016431BA3CF1500DAFB13 /* digital photocamera 拷贝.png in Resources */,
@@ -3788,6 +3818,8 @@
 				18C016521BA3CF1500DAFB13 /* nav_back@2x.png in Resources */,
 				185FD78D1C8D8E9600EDCF0D /* SettingCell.xib in Resources */,
 				1805538C1C8FCC0400381181 /* take_photo_pic@2x.png in Resources */,
+				14AE44D21CB517AB00F2E1FE /* 消息@2x.png in Resources */,
+				14AE44CE1CB517AB00F2E1FE /* 发布汇@2x.png in Resources */,
 				180553851C8FCC0400381181 /* flash_open_pic.png in Resources */,
 				1886A0BC1C97FA9700EEE11C /* LoginViewController.xib in Resources */,
 				18C0164D1BA3CF1500DAFB13 /* info_btn_xxx@2x.png in Resources */,
@@ -4245,7 +4277,7 @@
 					"\"$(SRCROOT)/ChuanSongMen/群聊/EaseMobSDK/lib/libEaseMobClientSDKLite.a\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chuansongmen.door;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "传送门";
 				PROVISIONING_PROFILE = "ae4db94c-aaa7-43f4-9331-a8a33f6ea270";
 			};
 			name = Debug;
@@ -4281,7 +4313,7 @@
 					"\"$(SRCROOT)/ChuanSongMen/群聊/EaseMobSDK/lib/libEaseMobClientSDKLite.a\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chuansongmen.door;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "传送门";
 				PROVISIONING_PROFILE = "ae4db94c-aaa7-43f4-9331-a8a33f6ea270";
 			};
 			name = Release;

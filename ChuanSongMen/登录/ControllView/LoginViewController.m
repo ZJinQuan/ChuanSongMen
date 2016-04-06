@@ -144,9 +144,13 @@
             
             TabBarController *tabVC = [[TabBarController alloc] init];
             
-            self.view.window.rootViewController = tabVC;
-            //2.设置Window为主窗口并显示出来
-            [self.view.window makeKeyAndVisible];
+            
+            [self presentViewController:tabVC animated:YES completion:nil];
+            
+//            
+//            self.view.window.rootViewController = tabVC;
+//            //2.设置Window为主窗口并显示出来
+//            [self.view.window makeKeyAndVisible];
             
             
             

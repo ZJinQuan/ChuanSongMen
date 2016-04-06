@@ -25,8 +25,10 @@
 
 - (void)initBaseNavigationRightBar{
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.titleLabel.textColor = [UIColor blackColor];
     rightButton.frame = CGRectMake(KScrennWith -10 - 40, 20 + 5, 40, 30);
-    [rightButton setTitle:@"查找" forState:UIControlStateNormal];    [rightButton addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
+    [rightButton setTitle:@"查找" forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 }
 

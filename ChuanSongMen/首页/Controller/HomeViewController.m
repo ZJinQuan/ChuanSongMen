@@ -97,11 +97,13 @@
     
 #pragma mark ===== 刷新列表 ==============
     //上拉刷新
-    [_tableView addHeaderWithTarget:self action:@selector(loadDataFromOriginPage)];
+//    [_tableView addHeaderWithTarget:self action:@selector(loadDataFromOriginPage)];
+    [_tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadDataFromOriginPage)];
     
  //下拉加载更多
     _pageNumber = 1;
-    [_tableView addFooterWithTarget:self action:@selector(reFreshData)];
+//    [_tableView addFooterWithTarget:self action:@selector(reFreshData)];
+    [_tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(reFreshData)];
 }
 
 
@@ -109,6 +111,7 @@
     _pageNumber = 1;
     [self requestDataFromSerer:_pageNumber];
     [_tableView headerEndRefreshing];
+//    [_tableView.header endEditing:NO];
     
 }
 
@@ -116,11 +119,12 @@
     _pageNumber ++;
     [self requestDataFromSerer:_pageNumber];
     [_tableView footerEndRefreshing];
+//    [_tableView.footer endEditing:NO];
     
 }
 
 - (void)requestDataFromSerer:(int)pageIndex{
-//    [self showHUD:@"正在加载数据..."];
+    [self showHUD:@"正在加载数据..."];
     
     NSInteger uid =   [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
     
@@ -160,7 +164,7 @@
     UIButton *leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame=CGRectMake(0, 0, 50, 30);
     [leftButton setTitle:@"搜查" forState:UIControlStateNormal];
-    [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [leftButton setTitleColor:RGB(0, 122, 255) forState:UIControlStateNormal];
 //    [leftButton setImage:[UIImage imageNamed:@"nav_search1.png"] forState:UIControlStateNormal];
     [leftButton addTarget:self action:@selector(leftPage) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBarButton=[[UIBarButtonItem alloc] initWithCustomView:leftButton];
@@ -171,7 +175,7 @@
     UIButton *rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
     rightButton.frame=CGRectMake(0, 0, 50, 30);
     [rightButton setTitle:@"发布" forState:UIControlStateNormal];
-    [rightButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [rightButton setTitleColor:RGB(0, 122, 255) forState:UIControlStateNormal];
 //    [rightButton setImage:[UIImage imageNamed:@"nav_release.png"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(rightPage) forControlEvents:UIControlEventTouchUpInside];
     

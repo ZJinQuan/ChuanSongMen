@@ -14,7 +14,7 @@
  #import "EaseUI.h"
 #import "UsergetMyAction.h"
 
-@interface ChatViewController ()
+@interface ChatViewController ()<UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UIButton *addFriendButton;
@@ -48,10 +48,22 @@
     FriendsView *friendsView = [[FriendsView alloc] initWithFrame:self.friendView.bounds];
     friendsView.backgroundColor = [UIColor purpleColor];
     friendsView.hidden = YES;
+    friendsView.dataSource = self;
     
     [self.friendView addSubview:friendsView];
     self.friendsView = friendsView;
 }
+
+-(NSMutableArray *)userMode{
+    
+    if (!_userMode) {
+        
+        self.userMode = [NSMutableArray array];
+        
+    }
+    return _userMode;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -61,25 +73,46 @@
     [self messageBucconClicked:self.messageButton];
     
     [self loadFriend];
+    
+    
+    
+    
+    NSLog(@"userModel%@",self.userMode);
 }
 
 #pragma mark ==  网络请求 ===== ==========
 -(void) loadFriend{
     
+    NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
+    
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
+    [params setObject:userid forKey:@"userId"];
     
-    [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"/usergetMyAction?userId=2"] params:params result:^(id responseObj, NSError *error) {
+    [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"/usergetMyAction"] params:params result:^(id responseObj, NSError *error) {
         
         if (responseObj != nil) {
-            NSLog(@"%@",responseObj);
             
+            
+            
+            NSDictionary* dict = responseObj[@"Firends"][0];
+            NSLog(@"------------------------------%@",dict);
             if ([responseObj[@"result"] isEqualToString:@"0"] ) {
-                for (NSDictionary *dict in responseObj[@"Firends"]) {
+                for (NSDictionary *dict in responseObj[@"Firends"][0]) {
                     UsergetMyAction *userMode = [UsergetMyAction initWithDictionary:dict];
                     
                     [self.userMode addObject:userMode];
                 }
+
+//                for (NSDictionary *dic in responseObj[@"list"]) {
+//                     *homePageModel = [HomePageModel initWithDictionary:dic];
+//                    [self.userMode addObject:homePageModel];
+//                }
+                [self.friendsView reloadData];
+                
             }
         }else{
             NSLog(@"%@", error);
@@ -123,5 +156,36 @@
     SearchFriendVC *searchFriendVC = [[SearchFriendVC alloc] initWithNibName:@"SearchFriendVC" bundle:nil];
     [self.navigationController pushViewController:searchFriendVC animated:YES];
 }
+
+#pragma mark UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.userMode.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *ID = @"cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    
+    UsergetMyAction *model = [UsergetMyAction new];
+    
+    
+    model = self.userMode[indexPath.row];
+    
+    NSLog(@"%@",model.niCheng);
+    
+    cell.textLabel.text = model.niCheng;
+    
+    
+    
+    
+    return cell;
+}
+
 
 @end

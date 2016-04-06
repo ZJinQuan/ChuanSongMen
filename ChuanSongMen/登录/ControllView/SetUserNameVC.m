@@ -83,6 +83,12 @@
     
     NSString * str = [NSString stringWithFormat:BaseUrl@"userregist"];
     NSLog(@"%@", str);
+    
+    NSString *userName = [self.pararm objectForKey:@"user.userName"];
+    NSString *passWord = [self.pararm objectForKey:@"user.passWord"];
+    
+    NSLog(@"%@--------------------------------%@",userName,passWord);
+    
     [[HTTPRequestManager sharedManager] POST:str params:self.pararm result:^(id responseObj, NSError *error) {
         if ([responseObj[@"result"] intValue] == 0) {
             

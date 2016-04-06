@@ -36,8 +36,7 @@
 #import "BaseViewController.h"
 
 //环信头文件
-#import "EaseMob.h"
-#import "EaseUI.h"
+
 @interface AppDelegate ()
 
 @end

@@ -36,4 +36,7 @@
 #import "HTTPRequestManager.h"
 #import "BaseModel.h"
 
+#import "EaseMob.h"
+#import "EaseUI.h"
+
 #endif

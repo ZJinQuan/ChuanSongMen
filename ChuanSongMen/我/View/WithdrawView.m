@@ -20,7 +20,6 @@
         view.frame=CGRectMake(0, 0, [UIUtils getWindowWidth], [UIUtils getWindowHeight]);
         [self addSubview:view];
         
-        
     }
     return self;
 
