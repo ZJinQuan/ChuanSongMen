@@ -1,20 +1,21 @@
 //
-//  ChatViewController.m
+//  MessageController.m
 //  ChuanSongMen
 //
 //  Created by apple on 16/3/17.
 //  Copyright © 2016年 apple. All rights reserved.
 //
 
-#import "ChatViewController.h"
+#import "MessageController.h"
 #import "SearchFriendVC.h"
 #import "EaseMessageViewController.h"
-#import "NewsView.h"
-#import "FriendsView.h"
- #import "EaseUI.h"
+#import "EaseUI.h"
 #import "UsergetMyAction.h"
+#import "FriendsCell.h"
+#import "ChatViewController.h"
+#import "FriendsComtroller.h"
 
-@interface ChatViewController ()<UITableViewDataSource>
+@interface MessageController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UIButton *addFriendButton;
@@ -24,33 +25,32 @@
 
 @property (nonatomic, strong) NSMutableArray *userMode;
 
-@property (nonatomic, strong) NewsView *newsView;
-@property (nonatomic, strong) FriendsView *friendsView;
+//@property (nonatomic, strong) UITableView *newsView;
+@property (weak, nonatomic) IBOutlet UITableView *newsView;
+@property (nonatomic, strong) UITableView *friendsView;
 
 @end
 
-@implementation ChatViewController
+@implementation MessageController
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
+
 }
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    
-    NewsView *newsView = [[NewsView alloc] initWithFrame:self.friendView.bounds];
-    newsView.backgroundColor = [UIColor yellowColor];
-    [self.friendView addSubview:newsView];
-    self.newsView = newsView;
-    
-    
-    FriendsView *friendsView = [[FriendsView alloc] initWithFrame:self.friendView.bounds];
-    friendsView.backgroundColor = [UIColor purpleColor];
-    friendsView.hidden = YES;
+    UITableView *friendsView = [[UITableView alloc] initWithFrame:self.view.bounds];
+
+    friendsView.y = 64;
     friendsView.dataSource = self;
+    friendsView.delegate = self;
+    friendsView.tag = 1111;
     
-    [self.friendView addSubview:friendsView];
+    [friendsView registerNib:[UINib nibWithNibName:@"FriendsCell" bundle:nil] forCellReuseIdentifier:@"friendCell"];
+    
+    
+    [self.view addSubview:friendsView];
     self.friendsView = friendsView;
 }
 
@@ -64,8 +64,31 @@
     return _userMode;
 }
 
+- (void)initBaseNavigationLeftBar{
+    //导航栏左侧按钮
+    UIButton *leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame=CGRectMake(0, 0, 50, 30);
+    [leftButton setTitle:@"搜查" forState:UIControlStateNormal];
+    [leftButton setTitleColor:RGB(0, 122, 255) forState:UIControlStateNormal];
+    
+    [leftButton addTarget:self action:@selector(searchButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBarButton=[[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem=leftBarButton;
+    
+    UIButton *rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.frame=CGRectMake(0, 0, 50, 30);
+    [rightButton setTitle:@"好友" forState:UIControlStateNormal];
+    [rightButton setTitleColor:RGB(0, 122, 255) forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(clickFriendBtn) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarButton=[[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem=rightBarButton;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.titleLable.text = @"消息";
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self changeLayerOfSomeControl:_messageButton];
     [self changeLayerOfSomeControl:_friendButton];
@@ -74,8 +97,7 @@
     
     [self loadFriend];
     
-    
-    
+    [self initBaseNavigationLeftBar];
     
     NSLog(@"userModel%@",self.userMode);
 }
@@ -101,16 +123,11 @@
             NSDictionary* dict = responseObj[@"Firends"][0];
             NSLog(@"------------------------------%@",dict);
             if ([responseObj[@"result"] isEqualToString:@"0"] ) {
-                for (NSDictionary *dict in responseObj[@"Firends"][0]) {
+                for (NSDictionary *dict in responseObj[@"Firends"]) {
                     UsergetMyAction *userMode = [UsergetMyAction initWithDictionary:dict];
                     
                     [self.userMode addObject:userMode];
                 }
-
-//                for (NSDictionary *dic in responseObj[@"list"]) {
-//                     *homePageModel = [HomePageModel initWithDictionary:dic];
-//                    [self.userMode addObject:homePageModel];
-//                }
                 [self.friendsView reloadData];
                 
             }
@@ -130,6 +147,10 @@
     _friendButton.backgroundColor = RGB(0, 117, 180);
        [_friendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
+    
+
+    
+    
     self.newsView.hidden = NO;
     self.friendsView.hidden = YES;
     
@@ -147,45 +168,63 @@
     
 }
 
+-(void)clickFriendBtn{
+    
+    FriendsComtroller *friendsVC = [[FriendsComtroller alloc] init];
+    
+    [self.navigationController pushViewController:friendsVC animated:YES];
+    
+}
+
 #pragma mark  ============= 添加好友按钮点击事件 ======
 - (IBAction)addFriendClicked:(UIButton *)sender {
 }
 
 #pragma mark  ============= 搜索按钮点击事件 =============
-- (IBAction)searchButtonClicked:(UIButton *)sender {
+
+-(void) searchButtonClicked{
+    
     SearchFriendVC *searchFriendVC = [[SearchFriendVC alloc] initWithNibName:@"SearchFriendVC" bundle:nil];
     [self.navigationController pushViewController:searchFriendVC animated:YES];
 }
 
-#pragma mark UITableViewDataSource
+#pragma mark UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.userMode.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *ID = @"cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    FriendsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendCell"];
     
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
+    cell.model = self.userMode[indexPath.row];
     
-    UsergetMyAction *model = [UsergetMyAction new];
-    
-    
-    model = self.userMode[indexPath.row];
-    
-    NSLog(@"%@",model.niCheng);
-    
-    cell.textLabel.text = model.niCheng;
-    
-    
-    
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 66;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [_friendsView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UsergetMyAction *model = self.userMode[indexPath.row];
+    
+    NSLog(@"%@",model.name);
+    
+    
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:model.userId conversationType:eConversationTypeChat];
+
+    chatController.title = model.niCheng;
+    
+    [chatController setHidesBottomBarWhenPushed:YES];
+    
+    [self.navigationController  pushViewController:chatController animated:YES];
+}
 
 @end

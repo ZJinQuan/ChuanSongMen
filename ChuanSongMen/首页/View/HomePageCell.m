@@ -17,9 +17,6 @@
 #import "VideoPlayVc.h"
 @implementation HomePageCell
 
-
-
-
 - (void)awakeFromNib {
     self.app =[UIApplication sharedApplication].delegate;
     self.rewardView.layer.borderColor = [RGB(238, 60, 65)CGColor];

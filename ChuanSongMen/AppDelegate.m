@@ -12,7 +12,7 @@
 
 #import "HomeViewController.h"
 #import "CommunicationViewController.h"
-#import "ChatViewController.h"
+#import "MessageController.h"
 #import "MyViewController.h"
 
 #import "UIUtils.h"
@@ -167,7 +167,7 @@
     
     
     //电池条颜色
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
     
     // 设置键盘
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
@@ -181,11 +181,28 @@
     [[EaseMob sharedInstance] registerSDKWithAppKey:@"chuansongmen#csm" apnsCertName:@"chuansongmen"];
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     
+    
     [[EaseSDKHelper shareHelper] easemobApplication:application
                       didFinishLaunchingWithOptions:launchOptions
                                              appkey:@"chuansongmen#csm"
                                        apnsCertName:@"chuansongmen"
                                         otherConfig:@{kSDKConfigEnableConsoleLogger:[NSNumber numberWithBool:YES]}];
+    
+    NSInteger uid =   [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
+    
+    NSString *userid = [[NSNumber numberWithInteger:uid ] stringValue];
+    
+    NSLog(@"%@------------------", userid);
+    
+    
+    EMError *error = nil;
+    NSDictionary *loginInfo = [[EaseMob sharedInstance].chatManager loginWithUsername:userid password:@"chuansongmen12345" error:&error];
+    if (!error && loginInfo) {
+        NSLog(@"登陆成功");
+        
+        //获取数据库中数据
+        [[EaseMob sharedInstance].chatManager loadDataFromDatabase];
+    }
     
     return YES;
 }

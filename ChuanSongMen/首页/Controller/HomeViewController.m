@@ -82,19 +82,6 @@
     
     [self addTableView];//增加表视图
     
-    
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0, 200, 44)];
-    titleLabel.font = [UIFont boldSystemFontOfSize:20];
-    
-    titleLabel.textColor = [UIColor blackColor];
-    
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    
-    titleLabel.text = @"主页";
-   
-    self.navigationItem.titleView = titleLabel;
-    
-    
 #pragma mark ===== 刷新列表 ==============
     //上拉刷新
 //    [_tableView addHeaderWithTarget:self action:@selector(loadDataFromOriginPage)];
@@ -104,6 +91,8 @@
     _pageNumber = 1;
 //    [_tableView addFooterWithTarget:self action:@selector(reFreshData)];
     [_tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(reFreshData)];
+    
+
 }
 
 

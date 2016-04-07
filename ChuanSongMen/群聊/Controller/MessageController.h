@@ -1,5 +1,5 @@
 //
-//  ChatViewController.h
+//  MessageController.h
 //  ChuanSongMen
 //
 //  Created by apple on 16/3/17.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface ChatViewController : BaseViewController
+@interface MessageController : BaseViewController
 
 @end

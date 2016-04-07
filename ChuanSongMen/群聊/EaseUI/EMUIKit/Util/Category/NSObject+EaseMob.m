@@ -28,14 +28,14 @@
     [[EaseMob sharedInstance].chatManager removeDelegate:self];
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
     
-    [[EaseMob sharedInstance].callManager removeDelegate:self];
-    [[EaseMob sharedInstance].callManager addDelegate:self delegateQueue:nil];
+//    [[EaseMob sharedInstance].callManager removeDelegate:self];
+//    [[EaseMob sharedInstance].callManager addDelegate:self delegateQueue:nil];
 }
 
 - (void)unregisterEaseMobNotification
 {
-    [[EaseMob sharedInstance].chatManager removeDelegate:self];
-    [[EaseMob sharedInstance].callManager removeDelegate:self];
+//    [[EaseMob sharedInstance].chatManager removeDelegate:self];
+//    [[EaseMob sharedInstance].callManager removeDelegate:self];
 }
 
 @end

@@ -19,17 +19,6 @@ typedef void (^FinishBlock)(BOOL success);
 typedef void (^PlayBlock)(BOOL playing, EaseMessageModel *messageModel);
 
 @class EMChatFireBubbleView;
-
-@protocol EMReadManagerProtocol <NSObject>
-
-@optional
-
-//图片、语音、视频消息阅读后
-- (void)readMessageFinished:(id<IMessageModel>)model;
-
-@end
-
-
 @interface EaseMessageReadManager : NSObject<MWPhotoBrowserDelegate>
 
 @property (strong, nonatomic) MWPhotoBrowser *photoBrowser;
@@ -37,12 +26,10 @@ typedef void (^PlayBlock)(BOOL playing, EaseMessageModel *messageModel);
 
 @property (strong, nonatomic) EaseMessageModel *audioMessageModel;
 
-@property (nonatomic) id<EMReadManagerProtocol> delegate;
-
 + (id)defaultManager;
 
 //default
-- (void)showBrowserWithImages:(NSArray *)imageArray messageModel:(id<IMessageModel>)model;
+- (void)showBrowserWithImages:(NSArray *)imageArray;
 
 /**
  *  准备播放语音文件
@@ -57,9 +44,5 @@ typedef void (^PlayBlock)(BOOL playing, EaseMessageModel *messageModel);
             updateViewCompletion:(void (^)(EaseMessageModel *prevAudioModel, EaseMessageModel *currentAudioModel))updateCompletion;
 
 - (EaseMessageModel *)stopMessageAudioModel;
-
-//播放视频
-- (void)showMoviePlayerWithVideoURL:(NSURL *)videoURL messageModel:(id<IMessageModel>)messageModel;
-
 
 @end

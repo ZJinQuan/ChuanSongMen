@@ -13,7 +13,7 @@
 #import "TabBarController.h"
 #import "HomeViewController.h"
 #import "CommunicationViewController.h"
-#import "ChatViewController.h"
+#import "MessageController.h"
 #import "MyViewController.h"
 
 @interface LoginViewController ()<returnUserInfoDelegate>

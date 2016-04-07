@@ -9,7 +9,7 @@
 #import "TabBarController.h"
 #import "HomeViewController.h"
 #import "CommunicationViewController.h"
-#import "ChatViewController.h"
+#import "MessageController.h"
 #import "MyViewController.h"
 
 @interface TabBarController ()
@@ -23,7 +23,7 @@
     
     [self addChildViewController:[[HomeViewController alloc] init] andImage:@"主页-灰色.png" addSeledImage:@"主页.png" addTitle:@"主页"];
     [self addChildViewController:[[CommunicationViewController alloc] init] andImage:@"发布汇-灰色.png" addSeledImage:@"发布汇.png" addTitle:@"发布汇"];
-    [self addChildViewController:[[ChatViewController alloc] init] andImage:@"消息-灰色.png" addSeledImage:@"消息.png" addTitle:@"消息"];
+    [self addChildViewController:[[MessageController alloc] init] andImage:@"消息-灰色.png" addSeledImage:@"消息.png" addTitle:@"消息"];
     [self addChildViewController:[[MyViewController alloc] init] andImage:@"我-灰色.png" addSeledImage:@"我.png" addTitle:@"我"];
     
 }
