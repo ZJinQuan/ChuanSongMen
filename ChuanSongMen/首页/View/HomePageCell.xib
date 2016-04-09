@@ -285,10 +285,10 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPN-sk-Lt1">
-                        <rect key="frame" x="0.0" y="340" width="327" height="1"/>
+                        <rect key="frame" x="55" y="341.5" width="272" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="Wif-xp-OCX"/>
+                            <constraint firstAttribute="height" constant="1" id="UDP-hV-L6N"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -315,14 +315,14 @@
                     <constraint firstItem="dmK-9S-Ftn" firstAttribute="top" secondItem="Mqg-JP-0IP" secondAttribute="bottom" id="Njx-aM-DJ9"/>
                     <constraint firstAttribute="trailing" secondItem="dmK-9S-Ftn" secondAttribute="trailing" constant="5" id="Ny8-wi-uEv"/>
                     <constraint firstItem="bxw-ax-Ul3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="PWc-UR-ktb"/>
+                    <constraint firstItem="aPN-sk-Lt1" firstAttribute="leading" secondItem="lur-qw-qyp" secondAttribute="leading" constant="-20" id="TW9-HL-mju"/>
                     <constraint firstAttribute="trailing" secondItem="Mqg-JP-0IP" secondAttribute="trailing" constant="5" id="U9Q-ky-Lvg"/>
                     <constraint firstItem="Mqg-JP-0IP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="WQd-xK-oPQ"/>
                     <constraint firstItem="s2q-Hl-r1D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="c5s-dW-1bm"/>
                     <constraint firstItem="Mqg-JP-0IP" firstAttribute="top" secondItem="s2q-Hl-r1D" secondAttribute="bottom" id="c8a-Yw-69f"/>
-                    <constraint firstAttribute="bottom" secondItem="aPN-sk-Lt1" secondAttribute="bottom" constant="1" id="es5-gK-QHh"/>
-                    <constraint firstItem="aPN-sk-Lt1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gpO-IC-hfb"/>
                     <constraint firstItem="s2q-Hl-r1D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kPF-Jx-atG"/>
-                    <constraint firstAttribute="trailing" secondItem="aPN-sk-Lt1" secondAttribute="trailing" constant="5" id="kox-tM-VuC"/>
+                    <constraint firstAttribute="trailing" secondItem="aPN-sk-Lt1" secondAttribute="trailing" constant="5" id="l9a-Du-qut"/>
+                    <constraint firstAttribute="bottom" secondItem="aPN-sk-Lt1" secondAttribute="bottom" id="ngB-2Q-Dr3"/>
                     <constraint firstAttribute="bottom" secondItem="UBe-0K-jR9" secondAttribute="bottom" constant="2" id="qLH-kZ-3SX"/>
                     <constraint firstItem="bxw-ax-Ul3" firstAttribute="top" secondItem="s2q-Hl-r1D" secondAttribute="bottom" id="sGj-0F-Jgr"/>
                     <constraint firstItem="MXq-i9-FoM" firstAttribute="top" secondItem="s2q-Hl-r1D" secondAttribute="bottom" constant="8" symbolic="YES" id="sxm-v4-B5D"/>

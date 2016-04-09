@@ -38,7 +38,7 @@
     
     self.view.backgroundColor=[UIColor whiteColor];
     
-    [self setNav];
+    self.titleLable.text = @"选择银行";
     
     [self addTopView];//增加segment控件
     
@@ -51,31 +51,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.hidden=YES;
-    
-
-
-}
-
--(void)setNav{
-    
-    
-    UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake((KScrennWith-80)/2, 20+5, 80, 30)];
-    titleLabel.text=@"选择银行";
-    titleLabel.textAlignment=NSTextAlignmentCenter;
-    titleLabel.font=[UIFont systemFontOfSize:18];
-    titleLabel.textColor=[UIColor whiteColor];
-    self.navigationItem.titleView=titleLabel;
-
-    
-    
-    UIButton *leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    leftButton.frame=CGRectMake(10, 20+5, 30, 30);
-    [leftButton setImage:[UIImage imageNamed:@"nav_back.png"] forState:UIControlStateNormal];
-    [leftButton addTarget:self action:@selector(cancleButtonPress) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBarButton=[[UIBarButtonItem alloc] initWithCustomView:leftButton];
-    
-    self.navigationItem.leftBarButtonItem=leftBarButton;
-    
 }
 
 -(void)addTopView{

@@ -80,6 +80,7 @@
     self.edgesForExtendedLayout=UIRectEdgeNone;
     
     
+    
     [self addTableView];//增加表视图
     
 #pragma mark ===== 刷新列表 ==============
@@ -153,7 +154,7 @@
     UIButton *leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame=CGRectMake(0, 0, 50, 30);
     [leftButton setTitle:@"搜查" forState:UIControlStateNormal];
-    [leftButton setTitleColor:RGB(0, 122, 255) forState:UIControlStateNormal];
+    [leftButton setTitleColor:RGB(66, 196, 228) forState:UIControlStateNormal];
 //    [leftButton setImage:[UIImage imageNamed:@"nav_search1.png"] forState:UIControlStateNormal];
     [leftButton addTarget:self action:@selector(leftPage) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBarButton=[[UIBarButtonItem alloc] initWithCustomView:leftButton];
@@ -164,7 +165,7 @@
     UIButton *rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
     rightButton.frame=CGRectMake(0, 0, 50, 30);
     [rightButton setTitle:@"发布" forState:UIControlStateNormal];
-    [rightButton setTitleColor:RGB(0, 122, 255) forState:UIControlStateNormal];
+    [rightButton setTitleColor:RGB(66, 196, 228) forState:UIControlStateNormal];
 //    [rightButton setImage:[UIImage imageNamed:@"nav_release.png"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(rightPage) forControlEvents:UIControlEventTouchUpInside];
     

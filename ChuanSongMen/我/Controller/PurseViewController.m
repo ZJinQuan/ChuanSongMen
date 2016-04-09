@@ -69,22 +69,10 @@
     self.navigationController.navigationBarHidden=NO;
     self.navigationController.navigationBar.tintColor=navBarColor(0.0, 115.0, 179.0);
     
-    UILabel *titleLabel=[[UILabel alloc] initWithFrame:CGRectMake((KScrennWith-80)/2, 20+5, 80, 30)];
-    titleLabel.text=@"我的钱包";
-    titleLabel.textAlignment=NSTextAlignmentCenter;
-    titleLabel.font=[UIFont systemFontOfSize:18];
-    titleLabel.textColor=[UIColor whiteColor];
-    self.navigationItem.titleView=titleLabel;
+    self.titleLable.text = @"我的钱包";
     
     
-    UIButton *leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    leftButton.frame=CGRectMake(10, 20+5, 30, 30);
-    [leftButton setImage:[UIImage imageNamed:@"nav_back.png"] forState:UIControlStateNormal];
-    [leftButton addTarget:self action:@selector(backPage) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBarButton=[[UIBarButtonItem alloc] initWithCustomView:leftButton];
-    
-    self.navigationItem.leftBarButtonItem=leftBarButton;
-    
+
 }
 
 -(void)tableData{

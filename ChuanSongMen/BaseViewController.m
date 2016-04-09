@@ -19,11 +19,11 @@
    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = RGB(245, 245, 245);
-    
-    self.navigationController.navigationBar.barTintColor=RGB(245, 245, 245);
-    
+
+    self.navigationController.navigationBar.barTintColor = RGB(245, 245, 245);
+
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 44,[UIScreen mainScreen].bounds.size.width, 1)];
-    line.backgroundColor = [UIColor blackColor];
+    line.backgroundColor = [UIColor grayColor];
     [self.navigationController.navigationBar addSubview:line];
     
     
@@ -104,12 +104,10 @@
 
 /* 设置导航栏左边按钮*/
 - (void)initBaseNavigationLeftBar{
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    backButton.frame = CGRectMake(0, 0, 20, 20);
-    [backButton setBackgroundImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(backToLastPage) forControlEvents:UIControlEventTouchUpInside];
-    self.backBtn = backButton;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
+    UIBarButtonItem *it = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(backToLastPage)];
+    
+    self.navigationItem.leftBarButtonItem = it;
 }
 
 /*设置导航栏右边按钮*/

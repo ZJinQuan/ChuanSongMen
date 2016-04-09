@@ -24,12 +24,16 @@
 }
 
 - (void)initBaseNavigationRightBar{
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightButton.titleLabel.textColor = [UIColor blackColor];
-    rightButton.frame = CGRectMake(KScrennWith -10 - 40, 20 + 5, 40, 30);
+    
+    UIButton *rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.frame=CGRectMake(0, 0, 50, 30);
     [rightButton setTitle:@"查找" forState:UIControlStateNormal];
+    [rightButton setTitleColor:RGB(66, 196, 228) forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    
+    UIBarButtonItem *rightBarButton=[[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem=rightBarButton;
+
 }
 
 - (void)searchAction{
@@ -50,6 +54,9 @@
     _tableView.delegate = self;
     _tableView.rowHeight = 60;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    
+    self.titleLable.text = @"搜查";
 }
 
 

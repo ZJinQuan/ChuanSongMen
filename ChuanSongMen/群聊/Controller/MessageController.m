@@ -49,6 +49,7 @@
     
     [friendsView registerNib:[UINib nibWithNibName:@"FriendsCell" bundle:nil] forCellReuseIdentifier:@"friendCell"];
     
+    friendsView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.view addSubview:friendsView];
     self.friendsView = friendsView;
@@ -69,7 +70,7 @@
     UIButton *leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame=CGRectMake(0, 0, 50, 30);
     [leftButton setTitle:@"搜查" forState:UIControlStateNormal];
-    [leftButton setTitleColor:RGB(0, 122, 255) forState:UIControlStateNormal];
+    [leftButton setTitleColor:RGB(66, 196, 228) forState:UIControlStateNormal];
     
     [leftButton addTarget:self action:@selector(searchButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBarButton=[[UIBarButtonItem alloc] initWithCustomView:leftButton];
@@ -78,7 +79,7 @@
     UIButton *rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
     rightButton.frame=CGRectMake(0, 0, 50, 30);
     [rightButton setTitle:@"好友" forState:UIControlStateNormal];
-    [rightButton setTitleColor:RGB(0, 122, 255) forState:UIControlStateNormal];
+    [rightButton setTitleColor:RGB(66, 196, 228) forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(clickFriendBtn) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightBarButton=[[UIBarButtonItem alloc] initWithCustomView:rightButton];
     self.navigationItem.rightBarButtonItem=rightBarButton;
@@ -172,6 +173,8 @@
     
     FriendsComtroller *friendsVC = [[FriendsComtroller alloc] init];
     
+    [friendsVC setHidesBottomBarWhenPushed:YES];
+    
     [self.navigationController pushViewController:friendsVC animated:YES];
     
 }
@@ -206,7 +209,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 66;
+    return 80;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -221,6 +224,7 @@
     ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:model.userId conversationType:eConversationTypeChat];
 
     chatController.title = model.niCheng;
+
     
     [chatController setHidesBottomBarWhenPushed:YES];
     

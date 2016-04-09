@@ -9,10 +9,13 @@
 #import "FriendsComtroller.h"
 #import "FriendsCell.h"
 #import "FriendsNMode.h"
+#import "ChatViewController.h"
 
-@interface FriendsComtroller ()
+@interface FriendsComtroller ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *userMode;
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -31,11 +34,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"FriendsCell" bundle:nil] forCellReuseIdentifier:@"friendCell"];
+    self.titleLable.text = @"好友";
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.y = 66;
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    
+    [tableView registerNib:[UINib nibWithNibName:@"FriendsCell" bundle:nil] forCellReuseIdentifier:@"friendCell"];
+    
+    [self.view addSubview:tableView];
+    self.tableView = tableView;
     
     [self loadFriend];
     
-    self.tableView.backgroundColor = [UIColor yellowColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     NSLog(@"friendsModel%@",self.userMode);
 }
@@ -93,7 +105,26 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 66;
+    return 80;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UsergetMyAction *model = self.userMode[indexPath.row];
+    
+    NSLog(@"%@",model.name);
+    
+    
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:model.userId conversationType:eConversationTypeChat];
+    
+    chatController.title = model.niCheng;
+
+    [chatController setHidesBottomBarWhenPushed:YES];
+    
+    [self.navigationController  pushViewController:chatController animated:YES];
+    
 }
 
 

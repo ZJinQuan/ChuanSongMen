@@ -22,6 +22,9 @@
 
 - (void)awakeFromNib {
 
+    
+    self.iconImage.layer.cornerRadius = 5;
+    self.iconImage.layer.masksToBounds = YES;
 }
 
 -(void)setModel:(UsergetMyAction *)model{

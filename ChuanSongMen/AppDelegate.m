@@ -204,6 +204,8 @@
         [[EaseMob sharedInstance].chatManager loadDataFromDatabase];
     }
     
+    [[UIApplication sharedApplication] keyWindow].tintColor = RGB(66, 196, 228);
+    
     return YES;
 }
 
