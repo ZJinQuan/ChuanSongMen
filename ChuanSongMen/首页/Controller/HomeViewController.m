@@ -57,6 +57,18 @@
     
     self.navigationController.navigationBarHidden = NO;
     
+//    self.navigationController.navigationBar.barTintColor = RGB(245, 245, 245);
+//    
+//    [self.navigationController.navigationBar setTitleTextAttributes:
+//     
+//     
+//  @{NSFontAttributeName:[UIFont systemFontOfSize:20],
+//    
+//    
+//    NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+//    self.navigationItem.titleView.backgroundColor = [UIColor blackColor];
+    
     //发布内容成功后的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshDataFormServer) name:@"发布成功" object:nil];
     
@@ -79,7 +91,8 @@
     
     self.edgesForExtendedLayout=UIRectEdgeNone;
     
-    
+    [self initBaseNavigationLeftBar];
+    [self initBaseNavigationRightBar];
     
     [self addTableView];//增加表视图
     
@@ -114,7 +127,7 @@
 }
 
 - (void)requestDataFromSerer:(int)pageIndex{
-    [self showHUD:@"正在加载数据..."];
+//    [self showHUD:@"正在加载数据..."];
     
     NSInteger uid =   [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
     
@@ -150,15 +163,25 @@
 
 #pragma mark  ============= 重新导航栏按钮 ==========
 - (void)initBaseNavigationLeftBar{
-    //导航栏左侧按钮
+    
     UIButton *leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame=CGRectMake(0, 0, 50, 30);
     [leftButton setTitle:@"搜查" forState:UIControlStateNormal];
     [leftButton setTitleColor:RGB(66, 196, 228) forState:UIControlStateNormal];
-//    [leftButton setImage:[UIImage imageNamed:@"nav_search1.png"] forState:UIControlStateNormal];
+    
     [leftButton addTarget:self action:@selector(leftPage) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftBarButton=[[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.leftBarButtonItem=leftBarButton;
+    
+    //导航栏左侧按钮
+//    UIButton *leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
+//    leftButton.frame=CGRectMake(0, 0, 50, 30);
+//    [leftButton setTitle:@"搜查" forState:UIControlStateNormal];
+//    [leftButton setTitleColor:RGB(66, 196, 228) forState:UIControlStateNormal];
+////    [leftButton setImage:[UIImage imageNamed:@"nav_search1.png"] forState:UIControlStateNormal];
+//    [leftButton addTarget:self action:@selector(leftPage) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *leftBarButton=[[UIBarButtonItem alloc] initWithCustomView:leftButton];
+//    self.navigationItem.leftBarButtonItem=leftBarButton;
 }
 //导航栏右侧按钮
 - (void)initBaseNavigationRightBar{

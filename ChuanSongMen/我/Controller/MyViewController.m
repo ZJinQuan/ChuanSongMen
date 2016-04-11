@@ -49,6 +49,8 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTheScorllViewContentOffset:) name:@"选中分组控制" object:nil];
+    
+    
 }
 
 - (void)removeTheScorllViewContentOffset:(NSNotification *)notification{
@@ -336,10 +338,6 @@
         
     }    
 }
-
-
-
-
 
 #pragma mark MyMessageViewDelegate
 #pragma mark ========== 设置 ==================

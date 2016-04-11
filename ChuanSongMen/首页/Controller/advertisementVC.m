@@ -55,7 +55,8 @@
 - (void)initBaseNavigationRightBar{
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     rightButton.frame = CGRectMake(KScrennWith -10 - 40, 20 + 5, 40, 30);
-    [rightButton setTitle:@"发布" forState:UIControlStateNormal];    [rightButton addTarget:self action:@selector(rightPage) forControlEvents:UIControlEventTouchUpInside];
+    [rightButton setTitle:@"发布" forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(rightPage) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 }
 

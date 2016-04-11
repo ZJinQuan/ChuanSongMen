@@ -10,5 +10,7 @@
 #import "MAAA.h"
 
 @interface BaseModel : NSObject
+
 +(instancetype)initWithDictionary:(NSDictionary *)dict;
+
 @end

@@ -72,14 +72,14 @@
 
 
 - (void)requestDataFromSerer:(int)pageIndex{
-    [self showHUD:@"正在加载数据..."];
+//    [self showHUD:@"正在加载数据..."];
     
     NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
     
     NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
 
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:@"13" forKey:@"userId"];
+    [params setObject:userid forKey:@"userId"];
 //    [params setObject:[NSNumber numberWithInt:self.userId] forKey:@"document.user.id"];
     [params setObject:[NSNumber numberWithInt:10] forKey:@"pageModel.pageSize"];
     [params setObject:[NSNumber numberWithInt:pageIndex] forKey:@"pageModel.pageIndex"];

@@ -17,31 +17,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = RGB(245, 245, 245);
-
-    self.navigationController.navigationBar.barTintColor = RGB(245, 245, 245);
-
+//
+//    self.navigationController.navigationBar.barTintColor = RGB(245, 245, 245);
+//
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 44,[UIScreen mainScreen].bounds.size.width, 1)];
     line.backgroundColor = [UIColor grayColor];
     [self.navigationController.navigationBar addSubview:line];
+//
+//#pragma mark ---初始化导航栏左右侧按钮 ================================
+//    [self initBaseNavigationLeftBar];
+//    [self initBaseNavigationRightBar];
+//    _app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    
+//
+//#pragma mark =======设置导航栏标题 ===================
+//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+//    titleLabel.font = [UIFont boldSystemFontOfSize:20];
+//    titleLabel.text = @"";
+//    titleLabel.textColor = [UIColor blackColor];
+//    titleLabel.textAlignment = NSTextAlignmentCenter;
+//    self.titleLable = titleLabel;
+//    self.navigationItem.titleView = titleLabel;
     
+    self.navigationController.navigationBar.barTintColor = RGB(245, 245, 245);
     
-    
-#pragma mark ---初始化导航栏左右侧按钮 ================================
-    [self initBaseNavigationLeftBar];
-    [self initBaseNavigationRightBar];
-    _app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    
-#pragma mark =======设置导航栏标题 ===================
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    titleLabel.font = [UIFont boldSystemFontOfSize:20];
-    titleLabel.text = @"";
-    titleLabel.textColor = [UIColor blackColor];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.titleLable = titleLabel;
-    self.navigationItem.titleView = titleLabel;
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName: [UIColor blackColor]}];
 }
 
 
@@ -182,7 +184,14 @@
 - (CGFloat)widthForString:(NSString *)value fontSize:(CGFloat)fontSize andHeight:(CGFloat)height
 {
     CGSize sizeToFit = [value sizeWithFont:[UIFont systemFontOfSize:fontSize] constrainedToSize:CGSizeMake(CGFLOAT_MAX, height) lineBreakMode:NSLineBreakByWordWrapping];//此处的换行类型（lineBreakMode）可根据自己的实际情况进行设置
+    
+
+//    NSDictionary *attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:13]};
+//    
+//    CGSize size = [value boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, height) options: NSStringDrawingUsesLineFragmentOrigin attributes:attribute context:nil].size;
+    
     CGFloat width = sizeToFit.width;
+    
     return width;
 }
 
@@ -191,6 +200,7 @@
 
 #pragma mark ==== 添加底部评论窗口 ==============
 -(void)adBottomCommentView{
+    
     _myMaskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScrennWith, KScrennHeight)];
     _myMaskView.backgroundColor = [UIColor clearColor];
    

@@ -96,6 +96,7 @@
     
     return model;
 }
+
 +(NSObject *)ModelAttributeAutomaticAssignment:(NSDictionary *)dic  kindOfClass:(Class)mClass ToModel:(NSObject *)model WithNameDictionary:(NSDictionary *)nameDic openRecursive:(BOOL)open
 {
     /**
@@ -187,6 +188,7 @@
     return model;
     
 }
+
 +(NSDictionary *)property:(Class)mclass
 {
     NSMutableDictionary * attrDic = [NSMutableDictionary new];

@@ -14,6 +14,8 @@
 #import "EaseConversationCell.h"
 #import "EaseConvertToCommonEmoticonsHelper.h"
 #import "NSDate+Category.h"
+#import "SearchFriendVC.h"
+#import "FriendsComtroller.h"
 
 @interface EaseConversationListViewController () <IChatManagerDelegate>
 
@@ -27,6 +29,10 @@
     
     [self tableViewDidTriggerHeaderRefresh];
     [self registerNotifications];
+    
+    self.navigationController.navigationBar.barTintColor = RGB(245, 245, 245);
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName: [UIColor blackColor]}];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -38,6 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initBaseNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +52,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initBaseNavigationBar{
+    //导航栏左侧按钮
+    UIButton *leftButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame=CGRectMake(0, 0, 50, 30);
+    [leftButton setTitle:@"搜查" forState:UIControlStateNormal];
+    [leftButton setTitleColor:RGB(66, 196, 228) forState:UIControlStateNormal];
+    
+    [leftButton addTarget:self action:@selector(searchButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBarButton=[[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem=leftBarButton;
+    
+    UIButton *rightButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.frame=CGRectMake(0, 0, 50, 30);
+    [rightButton setTitle:@"好友" forState:UIControlStateNormal];
+    [rightButton setTitleColor:RGB(66, 196, 228) forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(clickFriendBtn) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarButton=[[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem=rightBarButton;
+}
+
+-(void) searchButtonClicked{
+    
+    SearchFriendVC *searchFriendVC = [[SearchFriendVC alloc] initWithNibName:@"SearchFriendVC" bundle:nil];
+    [self.navigationController pushViewController:searchFriendVC animated:YES];
+}
+
+-(void)clickFriendBtn{
+    
+    FriendsComtroller *friendsVC = [[FriendsComtroller alloc] init];
+    
+    [friendsVC setHidesBottomBarWhenPushed:YES];
+    
+    [self.navigationController pushViewController:friendsVC animated:YES];
+    
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

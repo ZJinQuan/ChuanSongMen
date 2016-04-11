@@ -65,22 +65,27 @@
     [_collectionView registerNib:[UINib nibWithNibName:@"AddImageCell" bundle:nil] forCellWithReuseIdentifier:@"addImageCell"];
     _collectionView.directionalLockEnabled = YES;
 
-    
+    [self initBaseNavigationLeftBar];
+    [self initBaseNavigationRightBar];
 }
 
 
 #pragma mark ========设置导航栏按钮 ===========================
 - (void)initBaseNavigationLeftBar{
     _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_leftButton setTitleColor:RGB(66, 196, 228) forState:UIControlStateNormal];
     _leftButton.frame = CGRectMake(10, 20 + 5, 40, 30);
     [_leftButton setTitle:@"返回" forState:UIControlStateNormal];
+    
     [_leftButton addTarget:self action:@selector(leftPage) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_leftButton];
 }
 - (void)initBaseNavigationRightBar{
     _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _rightButton.frame = CGRectMake(KScrennWith -10 - 40, 20 + 5, 40, 30);
-    [_rightButton setTitle:@"发布" forState:UIControlStateNormal];    [_rightButton addTarget:self action:@selector(rightPage) forControlEvents:UIControlEventTouchUpInside];
+    [_rightButton setTitleColor:RGB(66, 196, 288) forState:UIControlStateNormal];
+    [_rightButton setTitle:@"发布" forState:UIControlStateNormal];
+    [_rightButton addTarget:self action:@selector(rightPag) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_rightButton];
 }
 
@@ -90,7 +95,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 #pragma mark ========发布按钮 ==========================
--(void)rightPage{
+-(void)rightPag{
     
     NSInteger uid = [[NSUserDefaults standardUserDefaults] integerForKey:@"key_ShortVersion"];
     
@@ -98,23 +103,34 @@
     
     NSLog(@"点击开始发布广告");
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:userid forKey:@"document.user.id"];
-    [params setObject:self.textView.text forKey:@"document.info"];
-    [params setObject:@"1" forKey:@"document.isSee"];
-    int number =  arc4random() % 100000 + 890000;
-    NSString *str = [NSString stringWithFormat:@"%@%d%d",[self getNowDate], number, 12];
-    [params setObject:str forKey:@"document.token"];
-    [params setObject:self.publicStyle forKey:@"document.type"];
     
-    if ([self.publicStyle isEqualToString:@"2"]) {
-        [params setObject:self.totalMoney forKey:@"document.allPrice"];
-        [params setObject:self.price forKey:@"document.price"];
-        [params setObject:self.number forKey:@"document.count"];
+    if ([self.textView.text isEqualToString:@"有什么新鲜事?"]) {
+        
+        [self showMessage:@"请输入内容"];
+        
+    }else{
+       
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        [params setObject:userid forKey:@"document.user.id"];
+        
+        [params setObject:self.textView.text forKey:@"document.info"];
+        [params setObject:@"1" forKey:@"document.isSee"];
+        int number =  arc4random() % 100000 + 890000;
+        NSString *str = [NSString stringWithFormat:@"%@%d%d",[self getNowDate], number, 12];
+        [params setObject:str forKey:@"document.token"];
+        [params setObject:self.publicStyle forKey:@"document.type"];
+        
+        if ([self.publicStyle isEqualToString:@"2"]) {
+            [params setObject:self.totalMoney forKey:@"document.allPrice"];
+            [params setObject:self.price forKey:@"document.price"];
+            [params setObject:self.number forKey:@"document.count"];
+        }
+        
+        [self POSTImage:@"http://120.24.46.199/Door/useraddDocument"  params:params image:_imageArray result:^(id responseObj, NSError *error) {
+        }];
+
     }
     
-    [self POSTImage:@"http://120.24.46.199/Door/useraddDocument"  params:params image:_imageArray result:^(id responseObj, NSError *error) {
-    }];
 }
 
 #pragma mark - 上传图片的网络封装

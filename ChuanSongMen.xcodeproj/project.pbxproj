@@ -3591,7 +3591,7 @@
 				TargetAttributes = {
 					18C015A51BA3B89900DAFB13 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 96D4CR62EL;
+						DevelopmentTeam = DJUJFVVC2U;
 					};
 					18C015BE1BA3B89900DAFB13 = {
 						CreatedOnToolsVersion = 6.4;
@@ -4308,9 +4308,9 @@
 					"-force_load",
 					"\"$(SRCROOT)/ChuanSongMen/群聊/EaseMobSDK/lib/libEaseMobClientSDKLite.a\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chuansongmen.door;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuansongmen.door1;
 				PRODUCT_NAME = "传送门";
-				PROVISIONING_PROFILE = "ae4db94c-aaa7-43f4-9331-a8a33f6ea270";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -4344,9 +4344,9 @@
 					"-force_load",
 					"\"$(SRCROOT)/ChuanSongMen/群聊/EaseMobSDK/lib/libEaseMobClientSDKLite.a\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chuansongmen.door;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuansongmen.door1;
 				PRODUCT_NAME = "传送门";
-				PROVISIONING_PROFILE = "ae4db94c-aaa7-43f4-9331-a8a33f6ea270";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

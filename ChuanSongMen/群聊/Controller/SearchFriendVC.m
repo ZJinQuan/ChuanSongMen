@@ -21,6 +21,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    self.title = @"搜查";
 }
 
 - (void)initBaseNavigationRightBar{

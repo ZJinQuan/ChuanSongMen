@@ -34,9 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.titleLable.text = @"好友";
+    self.title = @"好友";
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-    tableView.y = 66;
     tableView.dataSource = self;
     tableView.delegate = self;
     
@@ -120,7 +119,8 @@
     ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:model.userId conversationType:eConversationTypeChat];
     
     chatController.title = model.niCheng;
-
+    
+    
     [chatController setHidesBottomBarWhenPushed:YES];
     
     [self.navigationController  pushViewController:chatController animated:YES];

@@ -253,6 +253,7 @@
 //    if (profileEntity) {
 //        model.avatarURLPath = profileEntity.imageUrl;
 //    }
+    model.avatarURLPath = @"http://120.24.46.199/Door/product/76893989-f8ff-4e36-929b-18e0fce389eb.jpg";
     model.failImageName = @"imageDownloadFail";
     return model;
 }
