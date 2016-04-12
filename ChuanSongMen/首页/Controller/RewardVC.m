@@ -9,6 +9,8 @@
 #import "RewardVC.h"
 #import "SendArticle.h"
 #import "advertisementVC.h"
+#import "ShareViewC.h"
+
 @interface RewardVC ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *topTF;
 @property (weak, nonatomic) IBOutlet UITextField *middleTF;
@@ -37,12 +39,20 @@
         [self showMessage:@"请输入合法值"];
     }else{
         if (self.selectPublishStyle == 1) {
-            SendArticle *sendArticlePage=[[SendArticle alloc] init];
-            sendArticlePage.selectPublishStyle = self.selectPublishStyle;
-            sendArticlePage.totalMoney = _moneyLabel.text;
-            sendArticlePage.price = _middleTF.text;
-            sendArticlePage.number = _topTF.text;
-            [self.navigationController pushViewController:sendArticlePage animated:YES];
+            
+//            SendArticle *sendArticlePage=[[SendArticle alloc] init];
+//            sendArticlePage.selectPublishStyle = self.selectPublishStyle;
+//            sendArticlePage.totalMoney = _moneyLabel.text;
+//            sendArticlePage.price = _middleTF.text;
+//            sendArticlePage.number = _topTF.text;
+            
+            ShareViewC *shareVC = [[ShareViewC alloc] init];
+            shareVC.selectPublishStyle = self.selectPublishStyle;
+            shareVC.totalMoney = _moneyLabel.text;
+            shareVC.price = _middleTF.text;
+            shareVC.number = _topTF.text;
+            
+            [self.navigationController pushViewController:shareVC animated:YES];
         }else{
             advertisementVC *adVC = [[advertisementVC alloc] initWithNibName:@"advertisementVC" bundle:nil];
             adVC.totalMoney = _moneyLabel.text;

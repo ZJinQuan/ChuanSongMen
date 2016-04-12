@@ -26,7 +26,7 @@
                     <rect key="frame" x="0.0" y="528" width="320" height="40"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="我也说一句" translatesAutoresizingMaskIntoConstraints="NO" id="EtJ-Uv-88A">
-                            <rect key="frame" x="10" y="2" width="244" height="36"/>
+                            <rect key="frame" x="2" y="2" width="252" height="36"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -53,7 +53,7 @@
                         <constraint firstAttribute="trailing" secondItem="tti-J6-cpD" secondAttribute="trailing" constant="10" id="Ric-0c-HDo"/>
                         <constraint firstAttribute="height" constant="40" id="ZRo-Z1-Lel"/>
                         <constraint firstItem="tti-J6-cpD" firstAttribute="leading" secondItem="EtJ-Uv-88A" secondAttribute="trailing" constant="10" id="fSD-wz-bHH"/>
-                        <constraint firstItem="EtJ-Uv-88A" firstAttribute="leading" secondItem="GdH-Pm-bS2" secondAttribute="leading" constant="10" id="qga-Ed-Uq2"/>
+                        <constraint firstItem="EtJ-Uv-88A" firstAttribute="leading" secondItem="GdH-Pm-bS2" secondAttribute="leading" constant="2" id="qga-Ed-Uq2"/>
                         <constraint firstAttribute="bottom" secondItem="EtJ-Uv-88A" secondAttribute="bottom" constant="2" id="uWm-Ic-vgp"/>
                     </constraints>
                 </view>

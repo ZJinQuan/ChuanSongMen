@@ -97,7 +97,8 @@
 #pragma mark  =============获取单元格的高度自适应  ===========
 + (CGFloat)cellHeight:(HomePageModel *)model
 {
-    /*NSString的对象方法,
+    /*
+     NSString的对象方法,
      1.用于计算给定的某段文体,在某种字体和字号下,在某个范围下根据不同的断行方式要正常显示需要的高度
      参1: 参考显示范围,(注意,宽度给正确,高度随意,0就行(因为是自适应))
      参2: 断行方式(一下代码中的值,计算结果是较准确的,视情况自定)
@@ -143,12 +144,9 @@
     [self.navigationController pushViewController:largeVC animated:YES];
 }
 
-
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
-
 
 #pragma mark ===  重写Model, 给单元格赋予数据================================
 - (void)setModel:(HomePageModel *)model{
@@ -273,7 +271,6 @@
         self.rightImageView.image = [UIImage imageNamed:@"advert_reward.png"];
         [self addSubview:_rightImageView];
 
-        
         self.rewardView.hidden = NO;
         self.shareView.hidden = YES;
         self.moneyLabel.text = [NSString stringWithFormat:@"¥%.2f", [_model.price floatValue]];

@@ -342,12 +342,6 @@
 }
 
 
-
-
-
-
-
-
 #pragma mark ========== actionSheetDelegate ================
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (buttonIndex) {

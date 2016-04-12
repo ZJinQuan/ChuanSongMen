@@ -31,10 +31,6 @@
     gesture.scale = 1.0;
 }
 
-
-
-
-
 - (void)setModel:(ImageModel *)model{
     _model = model;
      [self.pictureView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:BaseUrl@"%@", _model.url]]];
@@ -45,7 +41,6 @@
     }
     
 }
-
 
 //- (void)setUrlString:(NSString *)urlString{
 //    _urlString = urlString;
@@ -58,9 +53,5 @@
 //    }
 //
 //}
-
-
-
-
 
 @end

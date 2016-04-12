@@ -78,31 +78,46 @@
     
     NSString *userid = [[NSNumber numberWithInteger:uid] stringValue];
 
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:userid forKey:@"userId"];
-//    [params setObject:[NSNumber numberWithInt:self.userId] forKey:@"document.user.id"];
-    [params setObject:[NSNumber numberWithInt:10] forKey:@"pageModel.pageSize"];
-    [params setObject:[NSNumber numberWithInt:pageIndex] forKey:@"pageModel.pageIndex"];
+//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+//    [params setObject:userid forKey:@"userId"];
+////    [params setObject:[NSNumber numberWithInt:self.userId] forKey:@"document.user.id"];
+//    [params setObject:[NSNumber numberWithInt:10] forKey:@"pageModel.pageSize"];
+//    [params setObject:[NSNumber numberWithInt:pageIndex] forKey:@"pageModel.pageIndex"];
     
-    [[HTTPRequestManager sharedManager] POST:@"http://120.24.46.199/Door/userqueryPayDocuments" params:params result:^(id responseObj, NSError *error) {
-        [self hideHUD];
-        
-        NSLog(@"%@",responseObj[@"message"]);
-        
-        if (pageIndex == 1) {
-            [self.dataSourceArray removeAllObjects];
-        }
-        if ([responseObj[@"result"] intValue] == 0 ) {
+//    [[HTTPRequestManager sharedManager] POST:@"http://120.24.46.199/Door/userqueryPayDocuments" params:params result:^(id responseObj, NSError *error) {
+//        [self hideHUD];
+//        
+//        NSLog(@"%@",responseObj[@"message"]);
+//        
+//        if (pageIndex == 1) {
+//            [self.dataSourceArray removeAllObjects];
+//        }
+//        if ([responseObj[@"result"] intValue] == 0 ) {
+//            for (NSDictionary *dic in responseObj[@"msg"]) {
+//                HomePageModel *homePageModel = [HomePageModel initWithDictionary:dic];
+//                [self.dataSourceArray addObject:homePageModel];
+//            }
+//            [_tableView reloadData];
+//        }else{
+//            [self hideHUD];
+//        }
+//        
+//    }];
+    
+    NSMutableDictionary *pararm = [NSMutableDictionary dictionary];
+    [pararm setObject:userid forKey:@"userid"];
+    [pararm setObject:@"4" forKey:@"type"];
+    [[HTTPRequestManager sharedManager] POST:[NSString stringWithFormat:BaseUrl@"userqueryDocuments"] params:pararm result:^(id responseObj, NSError *error) {
+        if ([responseObj[@"result"] intValue] == 0) {
             for (NSDictionary *dic in responseObj[@"msg"]) {
-                HomePageModel *homePageModel = [HomePageModel initWithDictionary:dic];
-                [self.dataSourceArray addObject:homePageModel];
+                HomePageModel *model = [HomePageModel initWithDictionary:dic];
+                [self.dataSourceArray addObject:model];
             }
-            [_tableView reloadData];
-        }else{
-            [self hideHUD];
         }
+        [_tableView reloadData];
         
     }];
+
 }
 
 
@@ -162,14 +177,6 @@
     return [HomePageCell cellHeight:self.dataSourceArray[indexPath.row]];
 }
 
-
-
-
-
-
-
-
-
 -(void)commentAction:(UITapGestureExtension *)gesture{
     self.homeCell =  (HomePageCell *)gesture.view.superview.superview.superview;
     _mainModel = _homeCell.model;
@@ -227,9 +234,6 @@
     }];
 }
 
-
-
-
 #pragma mark =======  文本视图 代理 ===============
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     if ([textView.text isEqualToString:@"我也说一句"]) {
@@ -246,11 +250,6 @@
         textView.font = [UIFont systemFontOfSize:14];
     }
 }
-
-
-
-
-
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     UITouch * t = [touches anyObject];

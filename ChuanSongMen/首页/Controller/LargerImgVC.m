@@ -8,7 +8,7 @@
 
 #import "LargerImgVC.h"
 #import "ImageModel.h"
-@interface LargerImgVC () <UIScrollViewDelegate>
+@interface LargerImgVC () <UIScrollViewDelegate,UIActionSheetDelegate>
 @property (nonatomic, strong) UIScrollView * scrollViews;
 @property (nonatomic, assign) CGFloat offSet;
 @property (nonatomic, strong) NSMutableArray * dataArr;
@@ -99,17 +99,19 @@
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         
 //        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
-        
-        UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+//        
+//        UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
         // 设置快速手势的方向向下
-        swipeDown.direction = UISwipeGestureRecognizerDirectionUp;
+//        swipeDown.direction = UISwipeGestureRecognizerDirectionUp;
         
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
-        [_scrollViews addGestureRecognizer:swipeDown];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        [_scrollViews addGestureRecognizer:tap];
         imageView.tag = 1000;
         self.imageView = imageView;
         
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction)];
         
+        [_scrollViews addGestureRecognizer:longPress];
     }
 }
 #pragma  mark ========== 手势 ============
@@ -117,29 +119,34 @@
 {
     
     // 判断手势的方向
-    if (swipe.direction == UISwipeGestureRecognizerDirectionUp)
-    {
-        // 动画
-        [UIView beginAnimations:nil context:NULL];
-        // 多久之后执行动画
-        //        [UIView setAnimationDelay:1];
-        // 动画持续时间
-        [UIView setAnimationDuration:0.1];
-        
-        // 代码写在中间...
-        CGRect rect = _scrollViews.frame;
-        rect.origin.y = -300;
-        _scrollViews.frame = rect;
-        
-        // 提交动画
-        [UIView commitAnimations];
-
-        [self.navigationController popViewControllerAnimated:YES];
-        
-    }
+//    if (swipe.direction == UISwipeGestureRecognizerDirectionUp)
+//    {
+//        // 动画
+//        [UIView beginAnimations:nil context:NULL];
+//        // 多久之后执行动画
+//        //        [UIView setAnimationDelay:1];
+//        // 动画持续时间
+//        [UIView setAnimationDuration:0.1];
+//        
+//        // 代码写在中间...
+//        CGRect rect = _scrollViews.frame;
+//        rect.origin.y = -300;
+//        _scrollViews.frame = rect;
+//        
+//        // 提交动画
+//        [UIView commitAnimations];
+//
+//    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-
+-(void) longPressAction{
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"收藏", @"保存到手机", @"举报", nil];
+    
+    [sheet showInView:self.imageView];
+}
 
 #pragma mark - subSV delegate
 
@@ -163,6 +170,44 @@
 {
     UIImageView *imageView = (UIImageView *)[scrollView viewWithTag:1000];
     return imageView;
+}
+
+#pragma mark UIActionSheetDelegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"收藏");
+            break;
+        case 1:
+            NSLog(@"保存到手机");
+            
+            UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(imageSavedToPhotosAlbum:didFinishSavingWithError:contextInfo:), nil);
+            
+            break;
+        case 2:
+            NSLog(@"举报");
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+- (void)imageSavedToPhotosAlbum:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    NSString *message = @"";
+    
+    if (!error) {
+        [self showMessage:@"成功保存到相册"];
+        message = @"成功保存到相册";
+    }else
+    {
+        message = [error description];
+    }
+    NSLog(@"message is %@",message);
 }
 
 @end

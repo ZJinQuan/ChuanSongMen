@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="CBX-YG-9Xz">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="558"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="qdS-69-Fmb"/>
@@ -28,7 +28,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="CBX-YG-9Xz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Uhd-EL-Iv8"/>
-                <constraint firstAttribute="bottom" secondItem="CBX-YG-9Xz" secondAttribute="bottom" constant="10" id="cAd-Tj-XEA"/>
+                <constraint firstAttribute="bottom" secondItem="CBX-YG-9Xz" secondAttribute="bottom" id="cAd-Tj-XEA"/>
                 <constraint firstItem="CBX-YG-9Xz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lUX-u5-gfR"/>
                 <constraint firstAttribute="trailing" secondItem="CBX-YG-9Xz" secondAttribute="trailing" id="w3n-nV-Bw1"/>
             </constraints>

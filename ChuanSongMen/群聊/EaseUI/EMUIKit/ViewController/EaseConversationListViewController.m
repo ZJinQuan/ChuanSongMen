@@ -16,6 +16,7 @@
 #import "NSDate+Category.h"
 #import "SearchFriendVC.h"
 #import "FriendsComtroller.h"
+#import "ChatViewController.h"
 
 @interface EaseConversationListViewController () <IChatManagerDelegate>
 
@@ -144,6 +145,17 @@
         EaseConversationModel *model = [self.dataArray objectAtIndex:indexPath.row];
         [_delegate conversationListViewController:self didSelectConversationModel:model];
     }
+    
+    ChatViewController *chatVC = [[ChatViewController alloc] initWithConversationChatter:@"16" conversationType:eConversationTypeChat];
+    
+    id<IConversationModel> model = self.dataArray[indexPath.row];
+    
+    chatVC.title = model.title;
+    
+    [chatVC setHidesBottomBarWhenPushed:YES];
+    
+    [self.navigationController pushViewController:chatVC animated:YES];
+    
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{

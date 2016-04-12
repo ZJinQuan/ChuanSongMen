@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1405FEE41CBCE3ED00BF0E42 /* ShareViewC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1405FEE21CBCE3ED00BF0E42 /* ShareViewC.m */; };
+		1405FEE51CBCE3ED00BF0E42 /* ShareViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1405FEE31CBCE3ED00BF0E42 /* ShareViewC.xib */; };
+		1405FEE81CBCECA100BF0E42 /* AddShareImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1405FEE71CBCECA100BF0E42 /* AddShareImage.m */; };
+		1405FEEA1CBCECBD00BF0E42 /* AddShareImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1405FEE91CBCECBD00BF0E42 /* AddShareImage.xib */; };
 		1437AB4D1CAE141C00BE6FCE /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1437AB141CAE141C00BE6FCE /* arrow@2x.png */; };
 		1437AB4E1CAE141C00BE6FCE /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1437AB151CAE141C00BE6FCE /* back@2x.png */; };
 		1437AB4F1CAE141C00BE6FCE /* chat_item_file@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1437AB161CAE141C00BE6FCE /* chat_item_file@2x.png */; };
@@ -574,6 +578,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1405FEE11CBCE3ED00BF0E42 /* ShareViewC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewC.h; sourceTree = "<group>"; };
+		1405FEE21CBCE3ED00BF0E42 /* ShareViewC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewC.m; sourceTree = "<group>"; };
+		1405FEE31CBCE3ED00BF0E42 /* ShareViewC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareViewC.xib; sourceTree = "<group>"; };
+		1405FEE61CBCECA100BF0E42 /* AddShareImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddShareImage.h; sourceTree = "<group>"; };
+		1405FEE71CBCECA100BF0E42 /* AddShareImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddShareImage.m; sourceTree = "<group>"; };
+		1405FEE91CBCECBD00BF0E42 /* AddShareImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddShareImage.xib; sourceTree = "<group>"; };
 		1437AB141CAE141C00BE6FCE /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		1437AB151CAE141C00BE6FCE /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		1437AB161CAE141C00BE6FCE /* chat_item_file@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_item_file@2x.png"; sourceTree = "<group>"; };
@@ -3003,12 +3013,18 @@
 				18233E761C83FD15009976AB /* PublishVC.h */,
 				18233E771C83FD15009976AB /* PublishVC.m */,
 				18233E781C83FD15009976AB /* PublishVC.xib */,
-				185F06AF1BC7A2060011D0EE /* SendArticle.h */,
-				185F06B01BC7A2060011D0EE /* SendArticle.m */,
-				185F06B11BC7A2060011D0EE /* SendArticle.xib */,
 				18233E821C843BC0009976AB /* RewardVC.h */,
 				18233E831C843BC0009976AB /* RewardVC.m */,
 				18233E841C843BC0009976AB /* RewardVC.xib */,
+				185F06AF1BC7A2060011D0EE /* SendArticle.h */,
+				185F06B01BC7A2060011D0EE /* SendArticle.m */,
+				185F06B11BC7A2060011D0EE /* SendArticle.xib */,
+				1405FEE11CBCE3ED00BF0E42 /* ShareViewC.h */,
+				1405FEE21CBCE3ED00BF0E42 /* ShareViewC.m */,
+				1405FEE31CBCE3ED00BF0E42 /* ShareViewC.xib */,
+				1405FEE61CBCECA100BF0E42 /* AddShareImage.h */,
+				1405FEE71CBCECA100BF0E42 /* AddShareImage.m */,
+				1405FEE91CBCECBD00BF0E42 /* AddShareImage.xib */,
 				18233E8B1C845126009976AB /* advertisementVC.h */,
 				18233E8C1C845126009976AB /* advertisementVC.m */,
 				18233E8D1C845126009976AB /* advertisementVC.xib */,
@@ -3654,6 +3670,7 @@
 				1437AB651CAE141C00BE6FCE /* chatBar_record@2x.png in Resources */,
 				1437AB4F1CAE141C00BE6FCE /* chat_item_file@2x.png in Resources */,
 				18C016581BA3CF1500DAFB13 /* tab_chat_pre@2x.png in Resources */,
+				1405FEEA1CBCECBD00BF0E42 /* AddShareImage.xib in Resources */,
 				18C0164B1BA3CF1500DAFB13 /* info_btn_s@2x.png in Resources */,
 				18C016471BA3CF1500DAFB13 /* friends@2x.png in Resources */,
 				1437AB561CAE141C00BE6FCE /* chatBar_colorMore_cameraSelected@2x.png in Resources */,
@@ -3695,6 +3712,7 @@
 				1437AB641CAE141C00BE6FCE /* chatBar_moreSelected@2x.png in Resources */,
 				FFEF5CF91C9FD923008DA2FA /* iconfont-sousuo.png in Resources */,
 				1805538E1C8FCC0400381181 /* zz_alumb_rightCell.png in Resources */,
+				1405FEE51CBCE3ED00BF0E42 /* ShareViewC.xib in Resources */,
 				1437AB731CAE141C00BE6FCE /* VoiceSearchFeedback005@2x.png in Resources */,
 				185FD77C1C8D769900EDCF0D /* CardInfoCell.xib in Resources */,
 				18C0165A1BA3CF1500DAFB13 /* tab_communication_pre@2x.png in Resources */,
@@ -3910,6 +3928,7 @@
 				1451D9931CB63B3E006B7C78 /* UIImageView+EMHighlightedWebCache.m in Sources */,
 				1451D9C21CB63B3E006B7C78 /* EaseBubbleView+Text.m in Sources */,
 				1451D9721CB63B3E006B7C78 /* MJRefreshComponent.m in Sources */,
+				1405FEE81CBCECA100BF0E42 /* AddShareImage.m in Sources */,
 				1451D9AC1CB63B3E006B7C78 /* UIViewController+DismissKeyboard.m in Sources */,
 				18C016E31BA4003E00DAFB13 /* HomeTableViewCell.m in Sources */,
 				180553781C8FCC0400381181 /* ZZBrowserPickerViewController.m in Sources */,
@@ -4074,6 +4093,7 @@
 				181061EE1C853A590021BDC6 /* SDWebImageDownloaderOperation.m in Sources */,
 				181061E91C853A590021BDC6 /* NSData+ImageContentType.m in Sources */,
 				14F5D9A01CB38D680059181C /* TabBarController.m in Sources */,
+				1405FEE41CBCE3ED00BF0E42 /* ShareViewC.m in Sources */,
 				1882F8211C9A6A0300927457 /* TopViewController.m in Sources */,
 				18C015F41BA3BE7500DAFB13 /* UIUtils.m in Sources */,
 				1451D99F1CB63B3E006B7C78 /* PSTGridLayoutInfo.m in Sources */,

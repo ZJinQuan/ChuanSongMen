@@ -28,6 +28,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
+    self.title = @"文章详情";
 }
 
 - (void)viewDidLoad {
@@ -38,9 +39,9 @@
     [self changeLayerOfSomeControl:_bottomTextView];
     [self changeLayerOfSomeControl:_sendArticleButton];
     
-            _top = [[TopViewController alloc] initWithNibName:@"TopViewController" bundle:nil];
-            _top.documentid = self.documentid;
-          _top.view.frame = CGRectMake(0,100 ,self.view.frame.size.width, [TopViewController heightForTheHeaderView:_model] + 10);
+    _top = [[TopViewController alloc] initWithNibName:@"TopViewController" bundle:nil];
+    _top.documentid = self.documentid;
+    _top.view.frame = CGRectMake(0,100 ,self.view.frame.size.width, [TopViewController heightForTheHeaderView:_model] + 10);
     _top.naviga = self.navigationController;
     
     
@@ -48,7 +49,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [_tableView registerNib:[UINib nibWithNibName:@"CommentCell" bundle:nil] forCellReuseIdentifier:@"commentCell"];
-//
+    //
     [self userCommentRequest];
     [self requestArticleDetailInfoFromServer];
 }
@@ -87,7 +88,7 @@
             [self.dataSourceArray addObject:commentModel];
         }
         [self.tableView reloadData];
-
+        
         
         
     }];
