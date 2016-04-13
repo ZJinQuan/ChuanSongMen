@@ -10,12 +10,17 @@
 #import "FriendsCell.h"
 #import "FriendsNMode.h"
 #import "ChatViewController.h"
+#import "ShareView.h"
 
 @interface FriendsComtroller ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *userMode;
 
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) UIView *shareView;
+
+@property (nonatomic, strong) ShareView *shareView2;
 
 @end
 
@@ -31,6 +36,15 @@
     return _userMode;
 }
 
+-(void)setModel:(HomePageModel *)model{
+    
+    _model = model;
+    
+    
+    self.shareView2.model2 = model;
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -39,16 +53,24 @@
     tableView.dataSource = self;
     tableView.delegate = self;
     
+    
+    
     [tableView registerNib:[UINib nibWithNibName:@"FriendsCell" bundle:nil] forCellReuseIdentifier:@"friendCell"];
     
     [self.view addSubview:tableView];
     self.tableView = tableView;
     
+    
+    
     [self loadFriend];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+    self.tableView.tag = 3333;
     NSLog(@"friendsModel%@",self.userMode);
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickBack) name:@"返回" object:nil];
+    
 }
 
 -(void) loadFriend{
@@ -87,6 +109,13 @@
     
 }
 
+-(void) clickBack{
+    
+    [self.shareView removeFromSuperview];
+    
+}
+
+#pragma mark UITableViewDelegate,UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.userMode.count;
 }
@@ -113,18 +142,46 @@
     
     UsergetMyAction *model = self.userMode[indexPath.row];
     
+    
     NSLog(@"%@",model.name);
     
-    
-    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:model.userId conversationType:eConversationTypeChat];
-    
-    chatController.title = model.niCheng;
-    
-    
-    [chatController setHidesBottomBarWhenPushed:YES];
-    
-    [self.navigationController  pushViewController:chatController animated:YES];
-    
+    if (self.tableId == nil) {
+        
+        
+        UIView *shareView = [[UIView alloc] initWithFrame:self.view.bounds];
+        
+        shareView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+        
+        [self.view addSubview:shareView];
+        self.shareView = shareView;
+        
+        ShareView *shareView2 = [[ShareView alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
+        
+        NSString *nicheng = model.niCheng;
+        
+        NSLog(@"%@",nicheng);
+        
+        shareView2.model = model;
+        shareView2.model2 = _model; 
+        shareView2.layer.cornerRadius = 5;
+        
+        shareView2.center = shareView.center;
+        
+        [shareView addSubview:shareView2];
+        
+        
+        
+    }else{
+        ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:model.userId conversationType:eConversationTypeChat];
+        
+        chatController.title = model.niCheng;
+        
+        
+        [chatController setHidesBottomBarWhenPushed:YES];
+        
+        [self.navigationController  pushViewController:chatController animated:YES];
+
+    }
 }
 
 

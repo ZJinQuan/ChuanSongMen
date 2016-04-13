@@ -10,38 +10,38 @@
 
 @interface HomePageModel : BaseModel
 
-@property (nonatomic, strong) NSString *documentUserName;//原文章的发布者的用户名
-@property (nonatomic, strong) NSString *documentNiCheng;//原文章的发布者的昵称
-@property (nonatomic, strong) NSString *transpondType;
-@property (nonatomic, strong) NSString *homeUrl;
-@property (nonatomic, strong) NSString *type;
-@property (nonatomic, strong) NSString *documentInfo;
-@property (nonatomic, strong) NSArray  *photoList;
-@property (nonatomic, strong) NSString *shareCount;
-@property (nonatomic, strong) NSString *topCount;
-@property (nonatomic, strong) NSString *info;
-@property (nonatomic, strong) NSString *ids;
-@property (nonatomic, strong) NSString *niCheng;
-@property (nonatomic, strong) NSString *price;
-@property (nonatomic, strong) NSString *homeDate;
-@property (nonatomic, strong) NSString *documentUserHead;
-@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, copy) NSString *documentUserName;//原文章的发布者的用户名
+@property (nonatomic, copy) NSString *documentNiCheng;//原文章的发布者的昵称
+@property (nonatomic, copy) NSString *transpondType;
+@property (nonatomic, copy) NSString *homeUrl;
+@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSString *documentInfo;
+@property (nonatomic, copy) NSArray  *photoList;
+@property (nonatomic, copy) NSString *shareCount;
+@property (nonatomic, copy) NSString *topCount;
+@property (nonatomic, copy) NSString *info;
+@property (nonatomic, copy) NSString *ids;
+@property (nonatomic, copy) NSString *niCheng;
+@property (nonatomic, copy) NSString *price;
+@property (nonatomic, copy) NSString *homeDate;
+@property (nonatomic, copy) NSString *documentUserHead;
+@property (nonatomic, copy) NSString *userName;
 
-@property (nonatomic, strong) NSString *createDate;
-@property (nonatomic, strong) NSString *userHead;
-@property (nonatomic, strong) NSString *discussCount;
+@property (nonatomic, copy) NSString *createDate;
+@property (nonatomic, copy) NSString *userHead;
+@property (nonatomic, copy) NSString *discussCount;
 @property (nonatomic, assign) NSInteger userId;
 @property (nonatomic, assign) NSInteger documentId;
 
-@property (nonatomic, strong) NSString *beforDocumentId;
-@property (nonatomic, strong) NSString *isCollection;  //是否收藏过  //1为否   0为是
-@property (nonatomic, strong) NSString *isDiscuss;     //是否评论过
-@property (nonatomic, strong) NSString *isShare;     //是否分享过
-@property (nonatomic, strong) NSString *isTop;      //是否点赞过
+@property (nonatomic, copy) NSString *beforDocumentId;
+@property (nonatomic, copy) NSString *isCollection;  //是否收藏过  //1为否   0为是
+@property (nonatomic, copy) NSString *isDiscuss;     //是否评论过
+@property (nonatomic, copy) NSString *isShare;     //是否分享过
+@property (nonatomic, copy) NSString *isTop;      //是否点赞过
 
 
-@property (nonatomic, strong) NSString *preview; //视频图
-@property (nonatomic, strong) NSString *video;   //视频流
+@property (nonatomic, copy) NSString *preview; //视频图
+@property (nonatomic, copy) NSString *video;   //视频流
 
 /*"documentUserName": "chuangsong666",//原文章的发布者的用户名
  "documentNiCheng": "MR王",  //原文章的发布者的昵称

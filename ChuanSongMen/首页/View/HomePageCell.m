@@ -15,6 +15,14 @@
 #import "AppDelegate.h"
 #import "LargerImgVC.h"
 #import "VideoPlayVc.h"
+#import "FriendsComtroller.h"
+
+@interface HomePageCell ()
+
+@property (nonatomic, strong) FriendsComtroller *friendVC;
+
+@end
+
 @implementation HomePageCell
 
 - (void)awakeFromNib {
@@ -151,6 +159,9 @@
 #pragma mark ===  重写Model, 给单元格赋予数据================================
 - (void)setModel:(HomePageModel *)model{
     _model = model;
+    
+    self.friendVC.model = model;
+    
     _photoTop = 30;
     if ([_model.transpondType isEqualToString:@"0"]) {
           [_topView removeFromSuperview];
@@ -177,8 +188,7 @@
     _zanNumber = [_model.topCount intValue];
     
     _commentLabel.text = _model.discussCount; //评论数
-    NSString *publicTimeStr = [MyTools getHayMenosTiempoTimestampSelloActual:_model.createDate];
-    _timeLabel.text = publicTimeStr; //发布时间
+    _timeLabel.text = model.createDate; //发布时间
      self.imageArray = [_model.photoList copy];
     
 #pragma mark ======= 底部图标文字是否变色 ===================
@@ -574,7 +584,18 @@
         case 0:
         {
             NSLog(@"分享给好友");
+
+            FriendsComtroller *friendVC = [[FriendsComtroller alloc] init];
+            friendVC.tableId = nil;
+            friendVC.model = _model;
+            [friendVC setHidesBottomBarWhenPushed:YES];
+            
+            self.friendVC = friendVC;
+            
+            [self.navigationController pushViewController:friendVC animated:YES];
+            
             }
+
             break;
         case 1:
         {

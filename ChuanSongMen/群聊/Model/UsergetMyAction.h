@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSString *niCheng; //昵称
 @property (nonatomic, strong) NSString *isGoodFriend;
 @property (nonatomic, strong) NSString *userId;
-@property (nonatomic, strong) NSString *name; 
+@property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *userName;
 
 

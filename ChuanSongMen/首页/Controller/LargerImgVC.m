@@ -109,7 +109,7 @@
         imageView.tag = 1000;
         self.imageView = imageView;
         
-        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction)];
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
         
         [_scrollViews addGestureRecognizer:longPress];
     }
@@ -141,11 +141,15 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void) longPressAction{
+-(void) longPressAction:(UILongPressGestureRecognizer *)swipe{
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"收藏", @"保存到手机", @"举报", nil];
-    
-    [sheet showInView:self.imageView];
+    if (swipe.state == UIGestureRecognizerStateBegan) {
+        
+        UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"收藏", @"保存到手机", @"举报", nil];
+        
+        [sheet showInView:self.imageView];
+        
+    }
 }
 
 #pragma mark - subSV delegate

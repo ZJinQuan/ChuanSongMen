@@ -111,14 +111,13 @@
     // 创建表视图
     _firstTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KScrennWith, KScrennHeight - 64 - 49) style:UITableViewStylePlain];
     _firstTableView.tag = 2001;
-    
+    _firstTableView.bounces = NO;
     _secondTableView = [[UITableView alloc] initWithFrame:CGRectMake(KScrennWith, 0, KScrennWith, KScrennHeight - 64 - 49) style:UITableViewStylePlain];
     _secondTableView.tag = 2002;
     
     _thirdTableView = [[UITableView alloc] initWithFrame:CGRectMake(KScrennWith * 2, 0, KScrennWith, KScrennHeight - 64 - 49) style:UITableViewStylePlain];
     _thirdTableView.tag = 2003;
     
-   
     [_smallScrollView addSubview:_firstTableView];
     [_smallScrollView addSubview:_secondTableView];
     [_smallScrollView addSubview:_thirdTableView];
@@ -261,7 +260,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (tableView.tag == 2001 ) {
+    if (tableView == _firstTableView) {
         return self.firstSourceArray.count;
     }else if(tableView.tag == 2002){
         if (self.secondSourceArray.count > 0) {
@@ -314,6 +313,15 @@
         return [HomePageCell cellHeight:self.thirdSourceArray[indexPath.row]];
     }
 }
+
+- (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView{
+    return YES;
+}
+
+-(void)scrollViewDidScrollToTop:(UIScrollView *)scrollView{
+    
+}
+
 
 #pragma mark=========== 跳转到文章详情======
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

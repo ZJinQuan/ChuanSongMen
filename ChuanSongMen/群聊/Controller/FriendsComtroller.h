@@ -7,10 +7,12 @@
 //
 
 #import "BaseViewController.h"
-
+#import "HomePageModel.h"
 
 @interface FriendsComtroller : BaseViewController
 
+@property (nonatomic, copy) NSString *tableId;
 
+@property (nonatomic, strong) HomePageModel *model;
 
 @end

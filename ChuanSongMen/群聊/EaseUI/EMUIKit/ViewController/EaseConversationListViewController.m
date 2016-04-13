@@ -82,7 +82,7 @@
 -(void)clickFriendBtn{
     
     FriendsComtroller *friendsVC = [[FriendsComtroller alloc] init];
-    
+    friendsVC.tableId = @"sss";
     [friendsVC setHidesBottomBarWhenPushed:YES];
     
     [self.navigationController pushViewController:friendsVC animated:YES];
