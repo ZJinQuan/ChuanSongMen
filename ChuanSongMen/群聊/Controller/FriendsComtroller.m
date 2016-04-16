@@ -64,7 +64,7 @@
     
     [self loadFriend];
     
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     self.tableView.tag = 3333;
     NSLog(@"friendsModel%@",self.userMode);
     

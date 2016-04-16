@@ -12,6 +12,7 @@
 #import "AFURLResponseSerialization.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "AppDelegate.h"
+
 @interface HTTPRequestManager ()
 {
     //HTTP请求管理器
